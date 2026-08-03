@@ -11,7 +11,7 @@ let categoriaAtiva = 'todas';
 // BASE DE DADOS COMPLETA DOS PRODUTOS POR PLATAFORMA
 // =========================================================================
 const baseProdutos = {
-  // 1. MERCADO LIVRE (25 Produtos - Intactos)
+// 1. MERCADO LIVRE (35 Produtos no Total)
   mercadolivre: [
     {
       titulo: "Creatina Monohidratada Pura 1kg Dark Lab Unidade Sem sabor",
@@ -362,6 +362,146 @@ const baseProdutos = {
       imagem: "assents/mercado_livre_files/cinta_seladora.png",
       link: "https://meli.la/2Ho8WjW",
       tags: ["Com Barbatanas", "Redução de Medidas"]
+    },
+    {
+      titulo: "Lavadora De Alta Pressão A Bateria Portátil Sem Fio Com Maleta",
+      vendedor: "Mais Vendido",
+      categoria: "Automotivo & Ferramentas",
+      avaliacao: "4.7",
+      vendas: "+5mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "35% OFF",
+      destaque: "Bateria Recarregável",
+      imagem: "assents/mercado_livre_files/lavadora_pressao.png",
+      link: "https://meli.la/1tyGwnK",
+      tags: ["Sem Fio", "Acompanha Maleta"]
+    },
+    {
+      titulo: "Kit Body Spray Masculino Perfumado Primacial 3 Unidades",
+      vendedor: "Mais Buscado",
+      categoria: "Beleza & Estética",
+      avaliacao: "4.8",
+      vendas: "+1mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Oferta Especial",
+      destaque: "Fragrâncias Marcantes",
+      imagem: "assents/mercado_livre_files/kit_boresprash.png",
+      link: "https://meli.la/2HvEmtK",
+      tags: ["Kit com 3", "Perfumaria Masculina"]
+    },
+    {
+      titulo: "Kit 6 Cuecas Boxer Masculina Lupo Sem Costura Microfibra",
+      vendedor: "Mais Vendido",
+      categoria: "Moda & Acessórios",
+      avaliacao: "4.9",
+      vendas: "+50mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Kit Atacado",
+      destaque: "Lupo Original",
+      imagem: "assents/mercado_livre_files/kit6_cuecas_sem_costura.png",
+      link: "https://meli.la/2HJYkKB",
+      tags: ["Sem Costura", "Conforto Diário"]
+    },
+    {
+      titulo: "Kit Tratamento Capilar Braé Stages Nutrition Completo",
+      vendedor: "Mais Vendido",
+      categoria: "Beleza & Estética",
+      avaliacao: "4.9",
+      vendas: "+10mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Nutrição Intensa",
+      destaque: "Linha Profissional",
+      imagem: "assents/mercado_livre_files/kit_de_higiene.png",
+      link: "https://meli.la/1rdSFMD",
+      tags: ["Shampoo + Máscara", "Braé Original"]
+    },
+    {
+      titulo: "Panela De Pressão Elétrica WAP 6 Litros Digital Inox",
+      vendedor: "Oferta Imperdível",
+      categoria: "Casa & Utilidades",
+      avaliacao: "4.8",
+      vendas: "+5mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "6 Litros",
+      destaque: "Painel Digital",
+      imagem: "assents/mercado_livre_files/fritadeira6L.png",
+      link: "https://meli.la/1K4Y33G",
+      tags: ["Segurança Total", "Capacidade 6L"]
+    },
+    {
+      titulo: "Fritadeira Air Fryer Oven Mondial Digital Com Porta De Vidro",
+      vendedor: "Mais Vendido",
+      categoria: "Casa & Utilidades",
+      avaliacao: "4.9",
+      vendas: "+20mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Design Oven",
+      destaque: "Mondial Original",
+      imagem: "assents/mercado_livre_files/fritadeira_com_automatico.png",
+      link: "https://meli.la/2E7mMRQ",
+      tags: ["Painel Touch", "Forno & Air Fryer"]
+    },
+    {
+      titulo: "Varal De Chão Com Abas Dobrável Alumínio E Aço",
+      vendedor: "Mais Vendido",
+      categoria: "Casa & Utilidades",
+      avaliacao: "4.7",
+      vendas: "+30mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Resistente",
+      destaque: "Fácil de Guardar",
+      imagem: "assents/mercado_livre_files/varal_de_roupa.png",
+      link: "https://meli.la/2K7nCUc",
+      tags: ["Dobrável", "Com Abas"]
+    },
+    {
+      titulo: "Cooktop 4 Bocas Chamalux A Gás Vidro Temperado Preto",
+      vendedor: "Mais Vendido",
+      categoria: "Casa & Utilidades",
+      avaliacao: "4.8",
+      vendas: "+15mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Chamalux",
+      destaque: "Acendimento Automático",
+      imagem: "assents/mercado_livre_files/cooktop.png",
+      link: "https://meli.la/2jeqCgL",
+      tags: ["Bivolt", "Vidro Temperado"]
+    },
+    {
+      titulo: "Carrinho De Mão Industrial Para Carga Rodas Com Pneu",
+      vendedor: "Mais Vendido",
+      categoria: "Automotivo & Ferramentas",
+      avaliacao: "4.8",
+      vendas: "+10mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Carga Pesada",
+      destaque: "Estrutura Reforçada",
+      imagem: "assents/mercado_livre_files/carro_apoio.png",
+      link: "https://meli.la/2LMtpWz",
+      tags: ["Pneu com Câmara", "Até 200kg"]
+    },
+    {
+      titulo: "Lavadora De Alta Pressão Kärcher Profissional Amarela",
+      vendedor: "Mais Vendido",
+      categoria: "Automotivo & Ferramentas",
+      avaliacao: "4.9",
+      vendas: "+25mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Kärcher Original",
+      destaque: "Alta Performance",
+      imagem: "assents/mercado_livre_files/lavadora_carro.png",
+      link: "https://meli.la/2kbmNvd",
+      tags: ["Economia de Água", "Jato Regulável"]
     }
   ],
 

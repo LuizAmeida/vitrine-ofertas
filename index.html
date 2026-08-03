@@ -40,6 +40,32 @@
     </div>
   </header>
 
+  <!-- BANNER CHAMATIVO DE DESTAQUE DA VITRINE -->
+<div class="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 text-white rounded-2xl p-6 mb-8 shadow-xl border border-blue-500/30 text-center relative overflow-hidden">
+  
+  <!-- Detalhe decorativo de fundo -->
+  <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+  
+  <div class="relative z-10 max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="text-left md:text-left">
+      <div class="inline-flex items-center gap-2 bg-yellow-400 text-gray-900 font-extrabold text-xs px-3 py-1 rounded-full uppercase tracking-wider mb-2 shadow-sm">
+        <i class="fas fa-store text-sm"></i> Vitrine Exclusiva
+      </div>
+      <h2 class="text-xl md:text-2xl font-black leading-tight">
+        Estes são apenas alguns destaques selecionados!
+      </h2>
+      <p class="text-sm text-blue-100 mt-1">
+        Temos milhares de outros produtos e cursos disponíveis. Se não encontrou o que procura, nos avise que encontramos o melhor preço para você!
+      </p>
+    </div>
+
+    <button onclick="document.getElementById('secao-pedido-customizado').scrollIntoView({ behavior: 'smooth' })" 
+            class="whitespace-nowrap bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-black px-5 py-3 rounded-xl transition-all duration-300 shadow-lg hover:scale-105 flex items-center gap-2 text-sm">
+      <i class="fas fa-search-plus text-base"></i> Pedir Outro Produto
+    </button>
+  </div>
+</div>
+
   <!-- Navegação por Abas (Plataformas) -->
   <section class="max-w-7xl mx-auto px-4 mt-8 w-full">
     <div class="flex justify-center border-b border-gray-200 space-x-2 md:space-x-4">
