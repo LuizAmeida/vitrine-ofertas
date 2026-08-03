@@ -11,7 +11,7 @@ let categoriaAtiva = 'todas';
 // BASE DE DADOS COMPLETA DOS PRODUTOS POR PLATAFORMA
 // =========================================================================
 const baseProdutos = {
-  // 1. MERCADO LIVRE (Links alinhados item por item com a vitrine)
+  // 1. MERCADO LIVRE (25 Produtos - Sequência e links 100% preservados)
   mercadolivre: [
     {
       titulo: "Creatina Monohidratada Pura 1kg Dark Lab Unidade Sem sabor",
@@ -365,8 +365,78 @@ const baseProdutos = {
     }
   ],
 
-  // 2. KIWIFY (Links atualizados diretamente dos painéis)
+  // 2. KIWIFY (14 Produtos Completos - Atualizados com Sales Pages)
   kiwify: [
+    {
+      titulo: "Esmaltação em Gel - Curso Completo",
+      vendedor: "Kiwify Infoproduto",
+      categoria: "Beleza & Estética",
+      avaliacao: "4.9",
+      vendas: "+2.500 alunas",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Inscrições Abertas",
+      destaque: "Com Certificado",
+      imagem: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=500&q=80",
+      link: "https://kiwify.app/rcxl5mC?afid=IsuFpjs6",
+      tags: ["Técnica Passo a Passo", "Acesso Imediato"]
+    },
+    {
+      titulo: "Curso de Afiliados - Plano Especial",
+      vendedor: "Kiwify Treinamento",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.9",
+      vendas: "+4.100 alunos",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Oferta Exclusiva",
+      destaque: "Aulas Práticas",
+      imagem: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=500&q=80",
+      link: "https://kiwify.app/u3digrT?afid=aemZNB40",
+      tags: ["Estratégia Validada", "Garantia 7 Dias"]
+    },
+    {
+      titulo: "Formação Essência dos Negócios",
+      vendedor: "Kiwify Treinamento",
+      categoria: "Negócios & Mídia",
+      avaliacao: "5.0",
+      vendas: "+890 alunos",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Formação Completa",
+      destaque: "Suporte VIP",
+      imagem: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80",
+      link: "https://kiwify.app/thrbU6J?afid=jDvIKDnt",
+      tags: ["Mentoria Estruturada", "Acesso Vitalício"]
+    },
+    {
+      titulo: "Competência Administrativa & Gestão",
+      vendedor: "Kiwify Infoproduto",
+      categoria: "Educação & Cursos",
+      avaliacao: "4.8",
+      vendas: "+1.800 alunos",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Promoção",
+      destaque: "Para Carreiras",
+      imagem: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80",
+      link: "https://kiwify.app/rTLthQL?afid=JuDsjfXJ",
+      tags: ["Certificado de Conclusão", "Garantia 7 Dias"]
+    },
+    {
+      titulo: "Sistema de Disparos de Mensagens Automáticas",
+      vendedor: "Kiwify Software",
+      categoria: "Tecnologia & Gadgets",
+      avaliacao: "4.8",
+      vendas: "+3.100 licenças",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Pacote de Envio",
+      destaque: "Automação",
+      imagem: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80",
+      link: "https://kiwify.app/Gq6AqCZ?afid=wKwwqghL",
+      tags: ["Software/Ferramenta", "Acesso Imediato"]
+    },
     {
       titulo: "Manutenção de Software - Treinamento Especializado",
       vendedor: "Kiwify Infoproduto",
@@ -378,7 +448,7 @@ const baseProdutos = {
       desconto: "Acesso Imediato",
       destaque: "Inscrições Abertas",
       imagem: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=500&q=80",
-      link: "https://kiwify.app/iDfbTcm?afid=jCoaqlbT", // Atualizado para a Página de Vendas oficial
+      link: "https://kiwify.app/iDfbTcm?afid=jCoaqlbT",
       tags: ["Treinamento Prático", "Garantia 7 Dias"]
     },
     {
@@ -392,7 +462,7 @@ const baseProdutos = {
       desconto: "Oferta Especial",
       destaque: "Material Focado",
       imagem: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kiwify.com.br/bSZ3JFq?afid=hn4uSoMK", // Atualizado para o checkout de R$ 497 funcional
+      link: "https://pay.kiwify.com.br/bSZ3JFq?afid=hn4uSoMK",
       tags: ["Para Concursos", "Download/Acesso Imediato"]
     },
     {
@@ -410,20 +480,6 @@ const baseProdutos = {
       tags: ["Leitura Digital", "Acesso Imediato"]
     },
     {
-      titulo: "Treinamento Completo de Vendas & Mídia",
-      vendedor: "Kiwify Infoproduto",
-      categoria: "Negócios & Mídia",
-      avaliacao: "4.8",
-      vendas: "+950 alunos",
-      precoOriginal: "",
-      precoPromocional: "Consulte a Oferta Atualizada",
-      desconto: "Formação Completa",
-      destaque: "Com Suporte",
-      imagem: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kiwify.com.br/4KQCJIS?afid=7vsfCawu",
-      tags: ["Curso Estruturado", "Garantia 7 Dias"]
-    },
-    {
       titulo: "Manual Prático da Bíblia",
       vendedor: "Kiwify E-book",
       categoria: "Desenvolvimento Pessoal",
@@ -436,20 +492,6 @@ const baseProdutos = {
       imagem: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=500&q=80",
       link: "https://pay.kiwify.com.br/bBAoBrp?afid=stCvcVaQ",
       tags: ["Material em PDF", "Acesso Imediato"]
-    },
-    {
-      titulo: "Competência Administrativa & Gestão",
-      vendedor: "Kiwify Infoproduto",
-      categoria: "Educação & Cursos",
-      avaliacao: "4.8",
-      vendas: "+1.800 alunos",
-      precoOriginal: "",
-      precoPromocional: "Consulte a Oferta Atualizada",
-      desconto: "Promoção",
-      destaque: "Para Carreiras",
-      imagem: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kiwify.com.br/aj515L1?afid=JuDsjfXJ",
-      tags: ["Certificado de Conclusão", "Garantia 7 Dias"]
     },
     {
       titulo: "Lista de Fornecedores Oficiais + E-books Bônus",
@@ -520,52 +562,10 @@ const baseProdutos = {
       imagem: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=500&q=80",
       link: "https://pay.kiwify.com.br/p7ZGJ94?afid=9pCkyTb4",
       tags: ["Planilha/PDF", "Download Imediato"]
-    },
-    {
-      titulo: "Curso Vivendo de Acessórios & Importação",
-      vendedor: "Kiwify Treinamento",
-      categoria: "Negócios & Mídia",
-      avaliacao: "4.9",
-      vendas: "+1.600 alunos",
-      precoOriginal: "",
-      precoPromocional: "Consulte a Oferta Atualizada",
-      desconto: "Treinamento VIP",
-      destaque: "Passo a Passo",
-      imagem: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kiwify.com.br/CqH4vCT?afid=U3rzrJ9g",
-      tags: ["Aulas em Vídeo", "Garantia 7 Dias"]
-    },
-    {
-      titulo: "Sistema de Disparos de Mensagens Automáticas",
-      vendedor: "Kiwify Software",
-      categoria: "Tecnologia & Gadgets",
-      avaliacao: "4.8",
-      vendas: "+3.100 licenças",
-      precoOriginal: "",
-      precoPromocional: "Consulte a Oferta Atualizada",
-      desconto: "Pacote de Envio",
-      destaque: "Automação",
-      imagem: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kiwify.com.br/qOXikpr?afid=wKwwqghL",
-      tags: ["Software/Ferramenta", "Acesso Imediato"]
-    },
-    {
-      titulo: "Treinamento Estratégia de Vendas para Afiliados",
-      vendedor: "Kiwify Treinamento",
-      categoria: "Negócios & Mídia",
-      avaliacao: "4.9",
-      vendas: "+7.800 alunos",
-      precoOriginal: "",
-      precoPromocional: "Consulte a Oferta Atualizada",
-      desconto: "Starter Afiliado",
-      destaque: "Aulas Práticas",
-      imagem: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kiwify.com.br/M4zsHTE?afid=6WI0l8OP",
-      tags: ["Passo a Passo", "Garantia 7 Dias"]
     }
   ],
 
-  // 3. KIRVANO
+  // 3. KIRVANO (20 Produtos - 14 Antigos Ativos + 6 Novos Validados)
   kirvano: [
     {
       titulo: "Escola das Manicures - Curso Profissional",
@@ -580,20 +580,6 @@ const baseProdutos = {
       imagem: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=500&q=80",
       link: "https://pay.kirvano.com/r/cc52eab5-19f1-4ab8-bfff-90337b3c1413",
       tags: ["Alongamento de Unhas", "Acesso Imediato"]
-    },
-    {
-      titulo: "+ de 100 Receitas Exclusivas de Bolsa de Crochê",
-      vendedor: "Por Eduardo Martinez",
-      categoria: "Artesanato & Hobbies",
-      avaliacao: "4.8",
-      vendas: "+6.100 vendas",
-      precoOriginal: "",
-      precoPromocional: "Consulte a Oferta Atualizada",
-      desconto: "Low Ticket",
-      destaque: "Passo a Passo em PDF",
-      imagem: "https://images.unsplash.com/photo-1584992236310-6edddc08acff?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kirvano.com/r/06f3e91a-4e29-4c91-8727-8beb9fa55f9c",
-      tags: ["100+ Receitas", "Download Imediato"]
     },
     {
       titulo: "Emagrecer Permanente + Aplicativo Auxiliar",
@@ -624,34 +610,6 @@ const baseProdutos = {
       tags: ["Manicure & Pedicure", "Acesso Vitalício"]
     },
     {
-      titulo: "Curso Designer de Sobrancelhas Profissional",
-      vendedor: "Por Marilia Fernandes",
-      categoria: "Beleza & Estética",
-      avaliacao: "4.8",
-      vendas: "+3.500 alunas",
-      precoOriginal: "",
-      precoPromocional: "Consulte a Oferta Atualizada",
-      desconto: "Do Zero ao Avançado",
-      destaque: "Método Validado",
-      imagem: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kirvano.com/r/ea057d3a-0266-418d-abae-a3fab2100fd8",
-      tags: ["Estética Facial", "Certificado Incluso"]
-    },
-    {
-      titulo: "Curso Detox de Relacionamentos",
-      vendedor: "Por Dra. Mayra Cardozo",
-      categoria: "Desenvolvimento Pessoal",
-      avaliacao: "4.9",
-      vendas: "+2.100 alunas",
-      precoOriginal: "",
-      precoPromocional: "Consulte a Oferta Atualizada",
-      desconto: "Desenvolvimento Pessoal",
-      destaque: "Superação & Autoestima",
-      imagem: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kirvano.com/r/54299cd5-433d-42f4-a1e0-df16a164e6be",
-      tags: ["Para Mulheres", "Suporte Especializado"]
-    },
-    {
       titulo: "Desafio Secar em 20 Dias + Aplicativo",
       vendedor: "Por JS LTDA",
       categoria: "Saúde & Fitness",
@@ -664,20 +622,6 @@ const baseProdutos = {
       imagem: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=500&q=80",
       link: "https://pay.kirvano.com/722804dd-e67d-459d-aeb8-b22b023df723?aff=f6e7cf13-dc4e-4d73-b558-4f2987a5a003",
       tags: ["Treino & Cardápio", "App Exclusivo"]
-    },
-    {
-      titulo: "Método Ninja - Arbitragem em Apostas Esportivas",
-      vendedor: "Por Suporte Ninja",
-      categoria: "Negócios & Mídia",
-      avaliacao: "4.7",
-      vendas: "+1.900 alunos",
-      precoOriginal: "",
-      precoPromocional: "Consulte a Oferta Atualizada",
-      desconto: "Renda Extra",
-      destaque: "Investimento Sem Risco",
-      imagem: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kirvano.com/r/085c86ec-89a7-431e-8287-5cfea965e681",
-      tags: ["Arbitragem Esportiva", "Aulas Passo a Passo"]
     },
     {
       titulo: "Desafio 21 Dias de Pilates na Prática",
@@ -708,20 +652,6 @@ const baseProdutos = {
       tags: ["Árabe Prático", "Aulas Diretas"]
     },
     {
-      titulo: "SRT Cinema - Escala de Vídeos no YouTube",
-      vendedor: "Por Emerson Ferreira",
-      categoria: "Negócios & Mídia",
-      avaliacao: "4.8",
-      vendas: "+1.300 licenças",
-      precoOriginal: "",
-      precoPromocional: "Consulte a Oferta Atualizada",
-      desconto: "Ferramentas & Mídia",
-      destaque: "Criação de Conteúdo",
-      imagem: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kirvano.com/r/bfd58831-7330-478c-9ede-13f66f61c95e",
-      tags: ["Crescimento YouTube", "Escala de Vídeos"]
-    },
-    {
       titulo: "Curso Lash Designer Iniciante - Extensão de Cílios",
       vendedor: "Por Luanda Especialista",
       categoria: "Beleza & Estética",
@@ -750,48 +680,6 @@ const baseProdutos = {
       tags: ["Vitrine para Instagram", "Integração WhatsApp"]
     },
     {
-      titulo: "Henri - Crie Seu Clone com Inteligência Artificial",
-      vendedor: "Por Henri.IA",
-      categoria: "Tecnologia & Gadgets",
-      avaliacao: "4.9",
-      vendas: "+3.800 usuários",
-      precoOriginal: "",
-      precoPromocional: "Consulte a Oferta Atualizada",
-      desconto: "Inteligência Artificial",
-      destaque: "Poder Computacional",
-      imagem: "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kirvano.com/r/a8d31a80-5b6c-423a-adb0-f6b60eb00702",
-      tags: ["Clonagem Digital IA", "Ferramenta Avançada"]
-    },
-    {
-      titulo: "Planilha Automatizada de Mão de Obra de Pedreiro",
-      vendedor: "Por ReforMAIS",
-      categoria: "Automotivo & Ferramentas",
-      avaliacao: "4.8",
-      vendas: "+9.200 downloads",
-      precoOriginal: "",
-      precoPromocional: "Consulte a Oferta Atualizada",
-      desconto: "Construção Civil",
-      destaque: "Cálculo Exato em m²",
-      imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kirvano.com/r/87482aec-99b3-426b-9217-b574ab9bb012",
-      tags: ["Planilha Excel", "Para Obras & Pedreiros"]
-    },
-    {
-      titulo: "Guia de Terapia Holística & Frequências Sonoras",
-      vendedor: "Por Felipe Terapia",
-      categoria: "Desenvolvimento Pessoal",
-      avaliacao: "4.9",
-      vendas: "+1.400 leitores",
-      precoOriginal: "",
-      precoPromocional: "Consulte a Oferta Atualizada",
-      desconto: "Bem-Estar & Cura",
-      destaque: "Equilíbrio Energético",
-      imagem: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kirvano.com/r/dcb515d7-1b76-4077-a7c1-2e4a6b418599",
-      tags: ["Frequências Sonoras", "Cura Corpo & Mente"]
-    },
-    {
       titulo: "Nova Profissão - Treinamento de Negócios Online",
       vendedor: "Por Suporte AFILIAGRAM",
       categoria: "Negócios & Mídia",
@@ -818,6 +706,90 @@ const baseProdutos = {
       imagem: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=500&q=80",
       link: "https://pay.kirvano.com/r/4be63625-ada9-4208-8b0d-584b411567a2",
       tags: ["Porcelana Fria", "Ideal para Iniciantes"]
+    },
+    {
+      titulo: "SRT Cinema - Escala de Vídeos no YouTube",
+      vendedor: "Por EMERSON FERREIRA DOS SANTOS",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.9",
+      vendas: "+1.500 licenças",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Escala para YouTube",
+      destaque: "Plataforma de Criação",
+      imagem: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/bfd58831-7330-478c-9ede-13f66f61c95e",
+      tags: ["Vídeos em Escala", "Suporte Exclusivo"]
+    },
+    {
+      titulo: "Rota Nacional - Fábrica e Fornecedores Dropshipping",
+      vendedor: "Por Willian Santos",
+      categoria: "Negócios & Mídia",
+      avaliacao: "5.0",
+      vendas: "+3.800 alunos",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Dropshipping Nacional",
+      destaque: "Bônus: Curso Shopee",
+      imagem: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/5c55353e-8434-4e8b-9ae4-f13eaa27c4b5",
+      tags: ["Fornecedores Diretos", "Alta Conversão"]
+    },
+    {
+      titulo: "MPD - Método Lucrar com Infoprodutos Low Ticket",
+      vendedor: "Por Guilherme Corrêa",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.9",
+      vendas: "+5.200 alunos",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Baixo Orçamento",
+      destaque: "Criativos & Estrutura Validada",
+      imagem: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/0b628594-798f-4cd8-89fd-a7809706ac0e",
+      tags: ["3 Order Bumps", "Suporte WhatsApp"]
+    },
+    {
+      titulo: "Instancia BrutalZap - Automação WhatsApp",
+      vendedor: "Por Felipe Eduardo",
+      categoria: "Tecnologia & Gadgets",
+      avaliacao: "4.8",
+      vendas: "+2.100 usuários",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Ferramenta Digital",
+      destaque: "Detecção PIX Automática",
+      imagem: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/5fbab68e-20a1-4fb6-b305-15c7f95146ed",
+      tags: ["Fluxos Ilimitados", "Webhooks / API"]
+    },
+    {
+      titulo: "E-book +de 50 Geladinhos Gourmet + 3 Bônus",
+      vendedor: "Por Receitas de Sabor Lucrativas",
+      categoria: "Gastronomia & Receitas",
+      avaliacao: "4.9",
+      vendas: "+8.400 vendas",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Renda Extra",
+      destaque: "50 Receitas Exclusivas",
+      imagem: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/8f4a3d7b-d074-4752-80ba-83f38749bed2",
+      tags: ["Cremosos & Fit", "Download Imediato"]
+    },
+    {
+      titulo: "Alô, Money - Gestão Financeira para Criadores",
+      vendedor: "Por Evair Brantes",
+      categoria: "Desenvolvimento Pessoal",
+      avaliacao: "4.8",
+      vendas: "+1.100 usuários",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Gestão Digital",
+      destaque: "Para Criadores de Conteúdo",
+      imagem: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/167ea5d8-5271-410f-9da8-c25f6e5cee83",
+      tags: ["Controle de Contratos", "Conexão Bancária"]
     }
   ]
 };
