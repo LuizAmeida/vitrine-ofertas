@@ -926,7 +926,7 @@ function renderizarProdutos(lista) {
           </div>
         </div>
         <div class="p-6 pt-0">
-          <a href="${item.link}" target="_blank" rel="noopener noreferrer" 
+          <a href="${item.link}" target="_blank" rel="noopener" 
              class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-3 px-4 rounded-xl transition-colors duration-200 shadow-md">
             Ver detalhes e preço no site <i class="fas fa-external-link-alt ml-1 text-xs"></i>
           </a>
