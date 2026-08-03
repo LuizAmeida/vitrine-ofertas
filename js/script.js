@@ -365,7 +365,7 @@ const baseProdutos = {
     }
   ],
 
-  // 2. KIWIFY
+  // 2. KIWIFY (Links atualizados diretamente dos painéis)
   kiwify: [
     {
       titulo: "Manutenção de Software - Treinamento Especializado",
@@ -378,7 +378,7 @@ const baseProdutos = {
       desconto: "Acesso Imediato",
       destaque: "Inscrições Abertas",
       imagem: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kiwify.com.br/zTITG5e?afid=jCoaqlbT",
+      link: "https://kiwify.app/iDfbTcm?afid=jCoaqlbT", // Atualizado para a Página de Vendas oficial
       tags: ["Treinamento Prático", "Garantia 7 Dias"]
     },
     {
@@ -392,7 +392,7 @@ const baseProdutos = {
       desconto: "Oferta Especial",
       destaque: "Material Focado",
       imagem: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=500&q=80",
-      link: "https://pay.kiwify.com.br/HTI7ir4?afid=hn4uSoMK",
+      link: "https://pay.kiwify.com.br/bSZ3JFq?afid=hn4uSoMK", // Atualizado para o checkout de R$ 497 funcional
       tags: ["Para Concursos", "Download/Acesso Imediato"]
     },
     {
