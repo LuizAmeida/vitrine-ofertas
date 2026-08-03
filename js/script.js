@@ -1,7 +1,7 @@
 // =========================================================================
 // CONFIGURAÇÃO DA API DO GOOGLE SHEETS
 // =========================================================================
-const URL_GOOGLE_SHEETS = "https://script.google.com/macros/s/AKfycbzNgBjHqXhkO60L0nXFg_M3NgX4ttpwq6a2wG5v7eMGtfW-_Kumr9ksyBZka_ULRgP-UQ/exec"; 
+const URL_GOOGLE_SHEETS = "https://script.google.com/macros/s/AKfycbzNgBjHqXhkO60LOnXFg_M3NgX4ttpwq6a2wG5v7eMGtfW-_Kumr9ksyBZka_ULRgP-UQ/exec"; 
 
 // Variáveis de Controle de Estado Global
 let abaAtual = 'mercadolivre';
