@@ -1,178 +1,208 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Central de Achados & Ofertas</title>
+  <title>Central de Achados & Cursos - As Melhores Ofertas</title>
   
-  <!-- Tailwind CSS via CDN -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome Ícones -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <!-- Estilos Personalizados -->
-  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+<body class="bg-gray-100 text-gray-800 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-  <!-- BARRA DE URGÊNCIA / ESCASSEZ -->
-  <div class="bg-amber-500 text-slate-900 font-bold text-xs md:text-sm py-2 px-4 text-center shadow-md flex items-center justify-center space-x-2">
-    <i class="fas fa-clock animate-pulse"></i>
-    <span>Ofertas do dia e cupons de desconto atualizam em:</span>
-    <span id="cronometro-ofertas" class="font-mono bg-slate-900 text-amber-400 px-2 py-0.5 rounded shadow">00:00:00</span>
+  <!-- ========================================================================= -->
+  <!-- BARRA DE AVISO SUPERIOR DA OFERTA -->
+  <!-- ========================================================================= -->
+  <div class="bg-amber-500 text-gray-900 font-bold text-xs py-2 px-4 text-center shadow-sm">
+    <i class="fas fa-clock mr-1"></i> Ofertas do dia e cupons de desconto atualizam em: 
+    <span id="cronometro-ofertas" class="bg-gray-900 text-yellow-400 px-2 py-0.5 rounded ml-1 font-mono text-sm">24:00:00</span>
   </div>
 
-  <!-- Cabeçalho Principal -->
-  <header class="bg-slate-900 text-white py-10 px-4 text-center shadow-lg">
-    <div class="max-w-4xl mx-auto">
-      <span class="bg-blue-600 text-blue-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Vitrine Oficial</span>
-      <h1 class="text-3xl md:text-5xl font-extrabold mt-3 mb-2">Central de Achados & Cursos</h1>
-      <p class="text-gray-300 text-sm md:text-base max-w-xl mx-auto mb-6">
+  <!-- ========================================================================= -->
+  <!-- HEADER PRINCIPAL -->
+  <!-- ========================================================================= -->
+  <header class="bg-slate-900 text-white pt-8 pb-12 px-4 shadow-lg">
+    <div class="max-w-6xl mx-auto text-center">
+      
+      <span class="inline-block bg-blue-600 text-white font-extrabold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full mb-3 shadow-sm">
+        VITRINE OFICIAL
+      </span>
+
+      <h1 class="text-3xl md:text-5xl font-black text-white mb-2 tracking-tight">
+        Central de Achados & Cursos
+      </h1>
+      <p class="text-gray-300 text-sm md:text-base max-w-2xl mx-auto mb-8 font-medium">
         Os melhores produtos físicos e conteúdos digitais reunidos em um só lugar.
       </p>
 
-      <!-- BARRA DE PESQUISA EM TEMPO REAL -->
+      <!-- CAMPO DE BUSCA PRINCIPAL NO CABEÇALHO -->
       <div class="max-w-xl mx-auto relative">
+        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
         <input type="text" id="input-busca" onkeyup="filtrarPorBusca()" 
                placeholder="Pesquisar produtos, e-books, ferramentas..." 
-               class="w-full py-3.5 pl-12 pr-4 text-gray-800 bg-white rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium transition-all">
-        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
+               class="w-full pl-11 pr-4 py-3.5 rounded-xl text-gray-800 text-sm focus:outline-none focus:ring-4 focus:ring-blue-500/50 shadow-lg">
       </div>
+
     </div>
   </header>
 
-  <!-- BANNER CHAMATIVO DE DESTAQUE DA VITRINE -->
-<div class="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 text-white rounded-2xl p-6 mb-8 shadow-xl border border-blue-500/30 text-center relative overflow-hidden">
-  
-  <!-- Detalhe decorativo de fundo -->
-  <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
-  
-  <div class="relative z-10 max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-    <div class="text-left md:text-left">
-      <div class="inline-flex items-center gap-2 bg-yellow-400 text-gray-900 font-extrabold text-xs px-3 py-1 rounded-full uppercase tracking-wider mb-2 shadow-sm">
-        <i class="fas fa-store text-sm"></i> Vitrine Exclusiva
-      </div>
-      <h2 class="text-xl md:text-2xl font-black leading-tight">
-        Estes são apenas alguns destaques selecionados!
-      </h2>
-      <p class="text-sm text-blue-100 mt-1">
-        Temos milhares de outros produtos e cursos disponíveis. Se não encontrou o que procura, nos avise que encontramos o melhor preço para você!
-      </p>
-    </div>
-
-    <button onclick="document.getElementById('secao-pedido-customizado').scrollIntoView({ behavior: 'smooth' })" 
-            class="whitespace-nowrap bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-black px-5 py-3 rounded-xl transition-all duration-300 shadow-lg hover:scale-105 flex items-center gap-2 text-sm">
-      <i class="fas fa-search-plus text-base"></i> Pedir Outro Produto
-    </button>
-  </div>
-</div>
-
-  <!-- Navegação por Abas (Plataformas) -->
-  <section class="max-w-7xl mx-auto px-4 mt-8 w-full">
-    <div class="flex justify-center border-b border-gray-200 space-x-2 md:space-x-4">
-      <button onclick="trocarAba('mercadolivre')" id="tab-mercadolivre" 
-              class="tab-btn py-3 px-6 font-bold text-sm md:text-base border-b-4 border-blue-600 text-blue-600 focus:outline-none transition-all">
-        <i class="fas fa-shopping-bag mr-2"></i>Mercado Livre
+  <!-- ========================================================================= -->
+  <!-- NAVEGAÇÃO POR ABAS DAS PLATAFORMAS -->
+  <!-- ========================================================================= -->
+  <nav class="bg-white border-b border-gray-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-6xl mx-auto flex justify-center space-x-2 md:space-x-8 px-2">
+      <button id="tab-mercadolivre" onclick="trocarAba('mercadolivre')" 
+              class="tab-btn py-4 px-4 font-extrabold text-sm border-b-2 border-blue-600 text-blue-600 flex items-center gap-2 transition-colors">
+        <i class="fas fa-shopping-bag"></i> Mercado Livre
       </button>
-
-      <button onclick="trocarAba('kiwify')" id="tab-kiwify" 
-              class="tab-btn py-3 px-6 font-bold text-sm md:text-base border-b-4 border-transparent text-gray-500 hover:text-gray-700 focus:outline-none transition-all">
-        <i class="fas fa-graduation-cap mr-2"></i>Kiwify
+      <button id="tab-kiwify" onclick="trocarAba('kiwify')" 
+              class="tab-btn py-4 px-4 font-extrabold text-sm border-b-2 border-transparent text-gray-500 hover:text-gray-800 flex items-center gap-2 transition-colors">
+        <i class="fas fa-graduation-cap"></i> Kiwify
       </button>
-
-      <button onclick="trocarAba('kirvano')" id="tab-kirvano" 
-              class="tab-btn py-3 px-6 font-bold text-sm md:text-base border-b-4 border-transparent text-gray-500 hover:text-gray-700 focus:outline-none transition-all">
-        <i class="fas fa-rocket mr-2"></i>Kirvano
+      <button id="tab-kirvano" onclick="trocarAba('kirvano')" 
+              class="tab-btn py-4 px-4 font-extrabold text-sm border-b-2 border-transparent text-gray-500 hover:text-gray-800 flex items-center gap-2 transition-colors">
+        <i class="fas fa-rocket"></i> Kirvano
       </button>
     </div>
+  </nav>
 
-    <!-- FILTRO RÁPIDO DE CATEGORIAS -->
-    <div id="container-categorias" class="flex flex-wrap justify-center gap-2 mt-6">
-      <!-- Inserido dinamicamente via JS -->
-    </div>
-  </section>
+  <!-- ========================================================================= -->
+  <!-- CONTEÚDO PRINCIPAL -->
+  <!-- ========================================================================= -->
+  <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
 
-  <!-- Renderização Dinâmica dos Cards -->
-  <main class="max-w-7xl mx-auto px-4 py-8 flex-grow w-full">
-    <div id="grid-produtos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
-      <!-- Cards inseridos dinamicamente via JS -->
-    </div>
-  </main>
-
-  <!-- SEÇÃO: NÃO ENCONTROU O QUE PROCURAVA? -->
-  <section class="max-w-4xl mx-auto px-4 my-10 w-full">
-    <div class="bg-gradient-to-r from-slate-900 to-blue-950 rounded-3xl p-8 text-white shadow-xl text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800">
-      <div class="space-y-2 max-w-lg">
-        <div class="inline-flex items-center space-x-2 bg-blue-900/60 px-3 py-1 rounded-full text-xs font-semibold text-blue-300">
-          <i class="fas fa-search-dollar text-sm"></i>
-          <span>Busca Personalizada</span>
+    <!-- BANNER CHAMATIVO DE DESTAQUE DA VITRINE -->
+    <div class="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 text-white rounded-2xl p-6 mb-8 shadow-xl border border-blue-500/30 text-center relative overflow-hidden">
+      
+      <!-- Detalhe decorativo de fundo -->
+      <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+      
+      <div class="relative z-10 max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-center md:text-left">
+          <div class="inline-flex items-center gap-2 bg-yellow-400 text-gray-900 font-extrabold text-xs px-3 py-1 rounded-full uppercase tracking-wider mb-2 shadow-sm">
+            <i class="fas fa-store text-sm"></i> Vitrine Exclusiva
+          </div>
+          <h2 class="text-xl md:text-2xl font-black leading-tight">
+            Estes são apenas alguns destaques selecionados!
+          </h2>
+          <p class="text-sm text-blue-100 mt-1">
+            Temos milhares de outros produtos e cursos disponíveis. Se não encontrou o que procura, nos avise que encontramos o melhor preço para você!
+          </p>
         </div>
-        <h2 class="text-2xl md:text-3xl font-extrabold">Não encontrou o que procurava?</h2>
-        <p class="text-gray-300 text-sm">
-          Digite o nome do produto ou curso desejado. Nós pesquisamos as melhores ofertas e te avisamos assim que encontrarmos!
-        </p>
-      </div>
 
-      <div class="w-full md:w-auto flex flex-col sm:flex-row gap-3">
-        <input type="text" id="input-pedido-customizado" placeholder="O que você deseja encontrar?" 
-               class="px-4 py-3 rounded-xl text-gray-800 focus:outline-none text-sm w-full md:w-64 font-medium shadow-inner">
-        <button onclick="abrirModalContato()" 
-                class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2 whitespace-nowrap">
-          <i class="fas fa-paper-plane"></i>
-          <span>Pedir Oferta</span>
+        <!-- BOTÃO COM AÇÃO DE ROLAR SUAVE E FOCAR NO INPUT DE PEDIDOS -->
+        <button onclick="var el = document.getElementById('input-pedido-customizado'); if(el){ el.scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(function(){ el.focus(); }, 500); }" 
+                class="whitespace-nowrap bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-black px-5 py-3 rounded-xl transition-all duration-300 shadow-lg hover:scale-105 flex items-center gap-2 text-sm cursor-pointer">
+          <i class="fas fa-search-plus text-base"></i> Pedir Outro Produto
         </button>
       </div>
     </div>
-  </section>
 
-  <!-- MODAL FLUTUANTE DE SOLICITAÇÃO DE CONTATO -->
-  <div id="modal-contato" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl p-6 md:p-8 max-w-md w-full shadow-2xl relative animate-fade-in">
-      <button onclick="fecharModalContato()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl font-bold p-2">
-        &times;
+    <!-- CARROSSEL / LISTA DE CATEGORIAS DINÂMICAS -->
+    <div id="container-categorias" class="flex flex-wrap gap-2 mb-8 justify-center">
+      <!-- Botões de categorias gerados dinamicamente via JS -->
+    </div>
+
+    <!-- GRID DE PRODUTOS -->
+    <div id="grid-produtos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Cards renderizados via script.js -->
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SEÇÃO DE CAPTURA / PEDIDO CUSTOMIZADO -->
+    <!-- ========================================================================= -->
+    <section id="secao-pedido-customizado" class="mt-16 bg-slate-900 text-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden border border-slate-800">
+      <div class="max-w-2xl mx-auto text-center relative z-10">
+        <div class="inline-flex items-center justify-center w-12 h-12 bg-blue-600 text-white rounded-2xl mb-4 shadow-lg">
+          <i class="fas fa-bullhorn text-xl"></i>
+        </div>
+        
+        <h2 class="text-2xl md:text-3xl font-black mb-2">Não encontrou o que procurava?</h2>
+        <p class="text-gray-400 text-sm mb-6">
+          Digite o nome do produto ou curso que você procura. Nossa equipe fará a busca das melhores ofertas e te enviará o link diretamente.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+          <input type="text" id="input-pedido-customizado" 
+                 placeholder="Ex: PlayStation 5, Curso de PHP..." 
+                 class="flex-grow px-4 py-3.5 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 shadow">
+          <button onclick="abrirModalContato()" 
+                  class="bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-6 py-3.5 rounded-xl transition-all shadow-md">
+            Buscar Oferta
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL DE CAPTURA DO CONTATO DO CLIENTE -->
+  <!-- ========================================================================= -->
+  <div id="modal-contato" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-gray-100 relative animate-fade-in">
+      
+      <button onclick="fecharModalContato()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+        <i class="fas fa-times text-xl"></i>
       </button>
 
-      <div class="text-center space-y-3">
-        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto text-xl">
-          <i class="fas fa-bell"></i>
+      <div class="text-center mb-6">
+        <div class="inline-flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-full mb-3">
+          <i class="fas fa-bell text-xl"></i>
         </div>
         <h3 class="text-xl font-bold text-gray-900">Avisar quando encontrar</h3>
-        <p class="text-xs text-gray-500">
+        <p class="text-xs text-gray-500 mt-1">
           Procurando a melhor oferta para: <br>
-          <strong id="modal-produto-nome" class="text-blue-600 text-sm font-semibold"></strong>
+          <span id="modal-produto-nome" class="font-bold text-blue-600 text-sm"></span>
         </p>
       </div>
 
-      <form onsubmit="salvarPedidoNoSheets(event)" class="mt-6 space-y-4">
+      <form onsubmit="salvarPedidoNoSheets(event)" class="space-y-4">
         <div>
           <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Seu WhatsApp ou E-mail</label>
           <input type="text" id="input-contato-cliente" required 
-                 placeholder="(11) 99999-9999 ou seu@email.com" 
-                 class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm font-medium">
+                 placeholder="Ex: 11999998888 ou seu@email.com" 
+                 class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
 
         <button type="submit" id="btn-salvar-modal" 
-                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-3.5 rounded-xl shadow-md transition-all flex items-center justify-center space-x-2">
-          <span>Cadastrar Pedido</span>
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-3.5 rounded-xl transition-colors shadow-md">
+          Cadastrar Pedido
         </button>
       </form>
+
     </div>
   </div>
 
+  <!-- ========================================================================= -->
   <!-- BOTÃO VOLTAR AO TOPO -->
-  <button onclick="voltarAoTopo()" id="btn-topo" 
-          class="fixed bottom-6 right-6 bg-slate-900/80 hover:bg-slate-900 text-white w-12 h-12 rounded-full shadow-xl flex items-center justify-center transition-all opacity-0 pointer-events-none z-40 backdrop-blur-sm">
+  <!-- ========================================================================= -->
+  <button id="btn-topo" onclick="voltarAoTopo()" 
+          class="fixed bottom-6 right-6 bg-blue-600 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-blue-700 z-40">
     <i class="fas fa-arrow-up"></i>
   </button>
 
-  <!-- Rodapé -->
-  <footer class="bg-gray-900 text-gray-400 py-8 px-4 text-center border-t border-gray-800 mt-auto">
-    <div class="max-w-4xl mx-auto space-y-2">
-      <p class="text-xs">Todas as compras são efetuadas diretamente nos ambientes seguros das plataformas oficiais.</p>
-      <p class="text-xs text-gray-600">&copy; 2026 - Central de Ofertas & Recomendados.</p>
+  <!-- ========================================================================= -->
+  <!-- FOOTER -->
+  <!-- ========================================================================= -->
+  <footer class="bg-slate-950 text-gray-400 text-xs py-8 px-4 text-center border-t border-slate-800">
+    <div class="max-w-6xl mx-auto space-y-3">
+      <p class="font-medium text-gray-300">
+        Central de Achados & Cursos &copy; Todos os direitos reservados.
+      </p>
+      <p class="max-w-3xl mx-auto text-[10px] text-gray-500 leading-relaxed">
+        Avisos: Somos um portal facilitador de achados e promoções de parceiros afiliados. Os preços e estoques dos produtos exibidos são gerenciados diretamente pelas plataformas oficiais (Mercado Livre, Kiwify e Kirvano) e podem sofrer alterações sem aviso prévio.
+      </p>
     </div>
   </footer>
 
-  <!-- Script JavaScript Local -->
+  <!-- ARCHIVO JAVASCRIPT PRINCIPAL -->
   <script src="js/script.js"></script>
 </body>
 </html>
