@@ -11,7 +11,7 @@ let categoriaAtiva = 'todas';
 // BASE DE DADOS COMPLETA DOS PRODUTOS POR PLATAFORMA
 // =========================================================================
 const baseProdutos = {
-  // 1. MERCADO LIVRE (25 Produtos - Sequência e links 100% preservados)
+  // 1. MERCADO LIVRE (25 Produtos - Intactos)
   mercadolivre: [
     {
       titulo: "Creatina Monohidratada Pura 1kg Dark Lab Unidade Sem sabor",
@@ -365,7 +365,7 @@ const baseProdutos = {
     }
   ],
 
-  // 2. KIWIFY (14 Produtos Completos - Atualizados com Sales Pages)
+  // 2. KIWIFY (19 Produtos - 14 Originais + 5 Novos com Sales Pages)
   kiwify: [
     {
       titulo: "Esmaltação em Gel - Curso Completo",
@@ -480,6 +480,20 @@ const baseProdutos = {
       tags: ["Leitura Digital", "Acesso Imediato"]
     },
     {
+      titulo: "Treinamento Completo de Vendas & Mídia",
+      vendedor: "Kiwify Infoproduto",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.8",
+      vendas: "+950 alunos",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Formação Completa",
+      destaque: "Com Suporte",
+      imagem: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/4KQCJIS?afid=7vsfCawu",
+      tags: ["Curso Estruturado", "Garantia 7 Dias"]
+    },
+    {
       titulo: "Manual Prático da Bíblia",
       vendedor: "Kiwify E-book",
       categoria: "Desenvolvimento Pessoal",
@@ -562,10 +576,66 @@ const baseProdutos = {
       imagem: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=500&q=80",
       link: "https://pay.kiwify.com.br/p7ZGJ94?afid=9pCkyTb4",
       tags: ["Planilha/PDF", "Download Imediato"]
+    },
+    {
+      titulo: "Curso Vivendo de Acessórios & Importação",
+      vendedor: "Kiwify Treinamento",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.9",
+      vendas: "+1.600 alunos",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Treinamento VIP",
+      destaque: "Passo a Passo",
+      imagem: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/CqH4vCT?afid=U3rzrJ9g",
+      tags: ["Aulas em Vídeo", "Garantia 7 Dias"]
+    },
+    {
+      titulo: "Treinamento Estratégia de Vendas para Afiliados",
+      vendedor: "Kiwify Treinamento",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.9",
+      vendas: "+7.800 alunos",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Starter Afiliado",
+      destaque: "Aulas Práticas",
+      imagem: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/M4zsHTE?afid=6WI0l8OP",
+      tags: ["Passo a Passo", "Garantia 7 Dias"]
+    },
+    {
+      titulo: "Método Vendas Rápidas no Instagram",
+      vendedor: "Kiwify E-book",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.8",
+      vendas: "+3.200 leitores",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Estratégia Prática",
+      destaque: "Passo a Passo",
+      imagem: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/HTI7ir4?afid=hn4uSoMK",
+      tags: ["Vendas no Insta", "Download Imediato"]
+    },
+    {
+      titulo: "Guia Definitivo do Marketing Digital",
+      vendedor: "Kiwify Infoproduto",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.9",
+      vendas: "+5.100 alunos",
+      precoOriginal: "",
+      precoPromocional: "Consulte a Oferta Atualizada",
+      desconto: "Do Zero ao Avançado",
+      destaque: "Conteúdo Exclusivo",
+      imagem: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/zTITG5e?afid=jCoaqlbT",
+      tags: ["Estratégias 2026", "Acesso Vitalício"]
     }
   ],
 
-  // 3. KIRVANO (20 Produtos - 14 Antigos Ativos + 6 Novos Validados)
+  // 3. KIRVANO (16 Produtos - 10 Mantidos Ativos + 6 Novos)
   kirvano: [
     {
       titulo: "Escola das Manicures - Curso Profissional",
