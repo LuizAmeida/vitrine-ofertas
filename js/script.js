@@ -121,8 +121,8 @@ const baseProdutos = {
       precoPromocional: "R$ 1.642,00",
       desconto: "66% OFF no Pix",
       destaque: "Economia de Energia",
-      imagem: "assents/mercado_livre_files/ar_condicionao.png",
-      link: "https://meli.la/31S9DUP",
+      imagem: "assents/mercado_livre_files/ar_condicionado.png",
+      link: "https://meli.la/28Z6oTY",
       tags: ["Consul Split Inverter", "12.000 BTUs"]
     },
     {
@@ -136,11 +136,11 @@ const baseProdutos = {
       desconto: "45% OFF",
       destaque: "12x R$ 43,32",
       imagem: "assents/mercado_livre_files/perfume_acqua_de_gio.png",
-      link: "https://meli.la/32SjbFA",
+      link: "https://meli.la/2iS9XzL",
       tags: ["Perfume Importado", "Fragrância Marcante"]
     },
     {
-      titulo: "10 Calcinha Infantil Algodão Tradicional Menina Atacado",
+      titulo: "Kit 10 Calcinha Infantil Algodão Tradicional Menina Atacado",
       vendedor: "Mais Vendido",
       categoria: "Moda & Acessórios",
       avaliacao: "4.7",
@@ -150,7 +150,7 @@ const baseProdutos = {
       desconto: "11% OFF",
       destaque: "Kit Atacado",
       imagem: "assents/mercado_livre_files/kit_calcinhas_infantil.png",
-      link: "https://meli.la/1a4HhKG",
+      link: "https://meli.la/21QuJix",
       tags: ["100% Algodão", "Conforto Infantil"]
     },
     {
@@ -164,7 +164,7 @@ const baseProdutos = {
       desconto: "45% OFF",
       destaque: "12x R$ 17,78",
       imagem: "assents/mercado_livre_files/perfume_lattafa_yara.png",
-      link: "https://meli.la/2QQgm6T",
+      link: "https://meli.la/1hk5bjE",
       tags: ["Perfume Árabe Lattafa", "Fixação Intensa"]
     },
     {
@@ -178,7 +178,7 @@ const baseProdutos = {
       desconto: "5% OFF no Pix",
       destaque: "Espelhamento Android/iOS",
       imagem: "assents/mercado_livre_files/mutimidia_option_7810h.png",
-      link: "https://meli.la/1md1sQ7",
+      link: "https://meli.la/2we6JN1",
       tags: ["Tela Touchscreen", "Bluetooth & USB"]
     },
     {
@@ -192,7 +192,7 @@ const baseProdutos = {
       desconto: "36% OFF",
       destaque: "7x R$ 22,81 sem juros",
       imagem: "assents/mercado_livre_files/coturno_militar.png",
-      link: "https://meli.la/14Wa8c8",
+      link: "https://meli.la/1SDLnJw",
       tags: ["Couro Resistente", "Zíper Lateral"]
     },
     {
@@ -206,7 +206,7 @@ const baseProdutos = {
       desconto: "Frete Grátis",
       destaque: "12x R$ 39,45",
       imagem: "assents/mercado_livre_files/perfume_masculino_azzaro.png",
-      link: "https://meli.la/1bKa9QP",
+      link: "https://meli.la/2Y1db8p",
       tags: ["Azzaro Original", "Fragrância Premium"]
     },
     {
@@ -220,7 +220,7 @@ const baseProdutos = {
       desconto: "Kit com 4",
       destaque: "12x R$ 19,76",
       imagem: "assents/mercado_livre_files/kit_4camisetas_masculinas.png",
-      link: "https://meli.la/18it4jR",
+      link: "https://meli.la/2tXy8Qb",
       tags: ["Tecnologia DryFit", "Ideal para Treino"]
     },
     {
@@ -234,7 +234,7 @@ const baseProdutos = {
       desconto: "41% OFF",
       destaque: "Edição Especial",
       imagem: "assents/mercado_livre_files/havaianas_simpsons.png",
-      link: "https://meli.la/2LYSLyK",
+      link: "https://meli.la/31S9DUP",
       tags: ["Havaianas Simpsons", "Original"]
     },
     {
@@ -248,7 +248,7 @@ const baseProdutos = {
       desconto: "26% OFF",
       destaque: "Selten Original",
       imagem: "assents/mercado_livre_files/bolsa_feminina.png",
-      link: "https://meli.la/2Ho8WjW",
+      link: "https://meli.la/32SjbFA",
       tags: ["Com Alça Transversal", "Design Elegante"]
     },
     {
@@ -262,7 +262,7 @@ const baseProdutos = {
       desconto: "60% OFF",
       destaque: "App Conectado",
       imagem: "assents/mercado_livre_files/balanca_digital.png",
-      link: "https://meli.la/28Z6oTY",
+      link: "https://meli.la/1a4HhKG",
       tags: ["Medição de Gordura", "Bluetooth Sync"]
     },
     {
@@ -276,7 +276,7 @@ const baseProdutos = {
       desconto: "35% OFF",
       destaque: "4 em 1 - 1300W",
       imagem: "assents/mercado_livre_files/escova_secadora.png",
-      link: "https://meli.la/2iS9XzL",
+      link: "https://meli.la/2QQgm6T",
       tags: ["Seca, Escova e Modela", "Britânia Original"]
     },
     {
@@ -290,7 +290,7 @@ const baseProdutos = {
       desconto: "19% OFF",
       destaque: "Tratamento Completo",
       imagem: "assents/mercado_livre_files/kit_hidratacao_facial.png",
-      link: "https://meli.la/21QuJix",
+      link: "https://meli.la/1md1sQ7",
       tags: ["Pele de Porcelana", "Anti-Sinais"]
     },
     {
@@ -304,7 +304,7 @@ const baseProdutos = {
       desconto: "50% OFF",
       destaque: "Cintura Alta Modeladora",
       imagem: "assents/mercado_livre_files/conjunto_fitness_virginia.png",
-      link: "https://meli.la/1hk5bjE",
+      link: "https://meli.la/14Wa8c8",
       tags: ["Tecido Suplex", "Não Fica Transparente"]
     },
     {
@@ -318,7 +318,7 @@ const baseProdutos = {
       desconto: "Tecido Encorpado",
       destaque: "Corte Flare",
       imagem: "assents/mercado_livre_files/calca_legging.png",
-      link: "https://meli.la/2we6JN1",
+      link: "https://meli.la/1bKa9QP",
       tags: ["Zero Transparência", "Modelagem Perfeita"]
     },
     {
@@ -332,7 +332,7 @@ const baseProdutos = {
       desconto: "20% OFF",
       destaque: "Kit com 3 Conjuntos",
       imagem: "assents/mercado_livre_files/kit_3conjuntos_top_shorts.png",
-      link: "https://meli.la/1SDLnJw",
+      link: "https://meli.la/18it4jR",
       tags: ["Cores Sortidas", "Excelente Custo Benefício"]
     },
     {
@@ -346,7 +346,7 @@ const baseProdutos = {
       desconto: "70% OFF",
       destaque: "Puma Caven",
       imagem: "assents/mercado_livre_files/tenis_puma_macio.png",
-      link: "https://meli.la/2Y1db8p",
+      link: "https://meli.la/2LYSLyK",
       tags: ["Conforto & Estilo", "Puma Original"]
     },
     {
@@ -360,7 +360,7 @@ const baseProdutos = {
       desconto: "43% OFF",
       destaque: "6x R$ 16,83 sem juros",
       imagem: "assents/mercado_livre_files/cinta_seladora.png",
-      link: "https://meli.la/2tXy8Qb",
+      link: "https://meli.la/2Ho8WjW",
       tags: ["Com Barbatanas", "Redução de Medidas"]
     }
   ],
