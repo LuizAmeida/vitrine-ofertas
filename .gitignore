@@ -1,0 +1,13 @@
+# Arquivos de sistema e ambiente do VS Code / SO
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Arquivos temporários e logs
+*.log
+npm-debug.log*
+
+# Caso venha a usar variáveis de ambiente ou dependências futuras
+.env
+node_modules/
