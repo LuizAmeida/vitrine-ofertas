@@ -11,7 +11,7 @@ let categoriaAtiva = 'todas';
 // BASE DE DADOS COMPLETA DOS PRODUTOS POR PLATAFORMA
 // =========================================================================
 const baseProdutos = {
-// 1. MERCADO LIVRE (Links verificados e corrigidos)
+// 1. MERCADO LIVRE (Links alinhados item por item com a vitrine)
   mercadolivre: [
     {
       titulo: "Creatina Monohidratada Pura 1kg Dark Lab Unidade Sem sabor",
