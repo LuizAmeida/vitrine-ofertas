@@ -1,5 +1,5 @@
-// LINK DA SUA API DO GOOGLE APPS SCRIPT (Cole a URL gerada aqui)
-const URL_GOOGLE_SHEETS = "https://script.google.com/macros/s/AKfycbzNgBjHqXhkO60LOnXFg_M3NgX4ttpwq6a2wG5v7eMGtfW-_Kumr9ksyBZka_ULRgP-UQ/exec"; 
+// LINK DA SUA API DO GOOGLE APPS SCRIPT (Mantenha a sua URL da Versão 2)
+const URL_GOOGLE_SHEETS = "https://script.google.com/macros/s/AKfycbzNgBjHqXhkO60L0nXFg_M3NgX4ttpwq6a2wG5v7eMGtfW-_Kumr9ksyBZka_ULRgP-UQ/exec"; 
 
 // Variáveis de Controle de Estado Global
 let abaAtual = 'mercadolivre';
@@ -7,7 +7,7 @@ let categoriaAtiva = 'todas';
 
 // Base de Dados dos Produtos por Plataforma
 const baseProdutos = {
-  // 1. MERCADO LIVRE (Notas e Contagens Reais extraídas das imagens salvas)
+  // 1. MERCADO LIVRE
   mercadolivre: [
     {
       titulo: "Creatina Monohidratada Pura 1kg Dark Lab Unidade Sem sabor",
@@ -361,7 +361,7 @@ const baseProdutos = {
     }
   ],
 
-  // 2. KIWIFY (14 Infoprodutos)
+  // 2. KIWIFY
   kiwify: [
     {
       titulo: "Manutenção de Software - Treinamento Especializado",
@@ -561,7 +561,7 @@ const baseProdutos = {
     }
   ],
 
-  // 3. KIRVANO (17 Infoprodutos)
+  // 3. KIRVANO
   kirvano: [
     {
       titulo: "Escola das Manicures - Curso Profissional",
@@ -827,7 +827,7 @@ function iniciarCronometro() {
   let diferenca = Math.floor((meiaNoite - agora) / 1000);
 
   setInterval(() => {
-    if (diferenca <= 0) diferenca = 86400; // Reseta 24h
+    if (diferenca <= 0) diferenca = 86400;
     const horas = Math.floor(diferenca / 3600).toString().padStart(2, '0');
     const minutos = Math.floor((diferenca % 3600) / 60).toString().padStart(2, '0');
     const segundos = Math.floor(diferenca % 60).toString().padStart(2, '0');
@@ -996,13 +996,90 @@ function fecharModalContato() {
   document.getElementById('modal-contato').classList.add('hidden');
 }
 
-// ENVIO DE DADOS PARA O GOOGLE SHEETS
+// =========================================================================
+// 🔍 FUNÇÃO DE VALIDAÇÃO AVANÇADA DE CONTATO (E-MAIL OU WHATSAPP)
+// =========================================================================
+function validarEFormatarContato(contatoBruto) {
+  const entrada = contatoBruto.trim();
+
+  // 1. VERIFICAÇÃO SE É E-MAIL
+  if (entrada.includes('@')) {
+    const regexEmail = /^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
+    const match = entrada.match(regexEmail);
+
+    if (!match) {
+      return { valido: false, mensagem: "Por favor, insira um e-mail válido (exemplo: nome@gmail.com)." };
+    }
+
+    const dominindo = match[1].toLowerCase();
+    const dominiosValidos = [
+      'gmail.com', 'outlook.com', 'hotmail.com', 'yahoo.com', 
+      'icloud.com', 'uol.com.br', 'bol.com.br', 'terra.com.br', 'live.com'
+    ];
+
+    if (!dominiosValidos.includes(dominindo)) {
+      return { 
+        valido: false, 
+        mensagem: `O domínio '@${dominindo}' não é aceito. Por favor, utilize um e-mail válido (Gmail, Outlook, Hotmail, Yahoo, etc.).` 
+      };
+    }
+
+    return { valido: true, dadoFormatado: entrada.toLowerCase() };
+  } 
+  
+  // 2. VERIFICAÇÃO SE É TELEFONE / WHATSAPP
+  else {
+    // Extrai estritamente somente os dígitos numéricos
+    let apenasNumeros = entrada.replace(/\D/g, '');
+
+    // Se o usuário digitou o DDI do Brasil (55), removemos para padronizar
+    if (apenasNumeros.startsWith('55') && (apenasNumeros.length === 13 || apenasNumeros.length === 12)) {
+      apenasNumeros = apenasNumeros.substring(2);
+    }
+
+    // Valida cel com DDD (11 dígitos, ex: 11999998888) ou Fixo com DDD (10 dígitos)
+    if (apenasNumeros.length === 11) {
+      const ddd = parseInt(apenasNumeros.substring(0, 2), 10);
+      const primeiroDigito = apenasNumeros.charAt(2);
+
+      // DDDs válidos no Brasil variam de 11 a 99
+      if (ddd < 11 || ddd > 99 || primeiroDigito !== '9') {
+        return { 
+          valido: false, 
+          mensagem: "Número de celular inválido! Certifique-se de incluir o DDD correto e o 9º dígito (ex: 11999998888)." 
+        };
+      }
+
+      // Retorna o número sanitizado com o DDI oficial +55 formatado de forma segura
+      return { valido: true, dadoFormatado: `+55${apenasNumeros}` };
+    } 
+    else if (apenasNumeros.length === 10) {
+      return { valido: true, dadoFormatado: `+55${apenasNumeros}` };
+    } 
+    else {
+      return { 
+        valido: false, 
+        mensagem: "Formato de contato inválido! Insira um e-mail válido (ex: seu@gmail.com) ou WhatsApp completo com DDD (ex: 85999998888)." 
+      };
+    }
+  }
+}
+
+// ENVIO DE DADOS PARA O GOOGLE SHEETS COM VALIDAÇÃO PREVENTIVA
 function salvarPedidoNoSheets(event) {
   event.preventDefault();
 
   const produto = document.getElementById('modal-produto-nome').innerText;
-  const contato = document.getElementById('input-contato-cliente').value.trim();
+  const contatoInput = document.getElementById('input-contato-cliente').value;
   const btn = document.getElementById('btn-salvar-modal');
+
+  // Executa a Validação
+  const validacao = validarEFormatarContato(contatoInput);
+
+  if (!validacao.valido) {
+    alert(validacao.mensagem);
+    return;
+  }
 
   btn.disabled = true;
   btn.innerText = "Salvando pedido...";
@@ -1014,7 +1091,7 @@ function salvarPedidoNoSheets(event) {
     body: JSON.stringify({
       produto: produto,
       plataforma: abaAtual.toUpperCase(),
-      contato: contato
+      contato: validacao.dadoFormatado // Envia o dado pré-sanitizado sem símbolos que geram #ERROR!
     })
   })
   .then(() => {
