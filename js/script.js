@@ -1,0 +1,1055 @@
+// LINK DA SUA API DO GOOGLE APPS SCRIPT (Cole a URL gerada aqui)
+const URL_GOOGLE_SHEETS = "https://script.google.com/macros/s/AKfycbzNgBjHqXhkO60LOnXFg_M3NgX4ttpwq6a2wG5v7eMGtfW-_Kumr9ksyBZka_ULRgP-UQ/exec"; 
+
+// Variáveis de Controle de Estado Global
+let abaAtual = 'mercadolivre';
+let categoriaAtiva = 'todas';
+
+// Base de Dados dos Produtos por Plataforma
+const baseProdutos = {
+  // 1. MERCADO LIVRE (Notas e Contagens Reais extraídas das imagens salvas)
+  mercadolivre: [
+    {
+      titulo: "Creatina Monohidratada Pura 1kg Dark Lab Unidade Sem sabor",
+      vendedor: "Por Dark Lab",
+      categoria: "Saúde & Fitness",
+      avaliacao: "4.9",
+      vendas: "+10mil vendidos",
+      precoOriginal: "R$ 159,90",
+      precoPromocional: "R$ 69,90",
+      desconto: "56% OFF",
+      destaque: "R$ 20 OFF com Cupom",
+      imagem: "assents/mercado_livre_files/creatina.jpeg",
+      link: "https://meli.la/2RGGEut",
+      tags: ["Chegará amanhã FULL", "Compra Garantida"]
+    },
+    {
+      titulo: "Kit 10 Calcinhas Fio Dental Microfibra Premium Sortidas Liso M 40-42",
+      vendedor: "Por LUH23 MODA INTIMA",
+      categoria: "Moda & Acessórios",
+      avaliacao: "4.8",
+      vendas: "+5mil vendidos",
+      precoOriginal: "R$ 59,99",
+      precoPromocional: "R$ 44,98",
+      desconto: "25% OFF",
+      destaque: "",
+      imagem: "assents/mercado_livre_files/kit calcinha.jpeg",
+      link: "https://meli.la/2vr8bot",
+      tags: ["Frete grátis FULL", "Compra Garantida"]
+    },
+    {
+      titulo: "Calibrador De Ar Digital Para Pneu Portátil Compressor Usb",
+      vendedor: "Mais Vendido",
+      categoria: "Automotivo & Ferramentas",
+      avaliacao: "4.7",
+      vendas: "+10mil vendidos",
+      precoOriginal: "R$ 65,99",
+      precoPromocional: "R$ 62,69",
+      desconto: "5% OFF",
+      destaque: "",
+      imagem: "assents/mercado_livre_files/compressor.jpeg",
+      link: "https://meli.la/13BXz83",
+      tags: ["Carro, Moto e Bike", "Compra Garantida"]
+    },
+    {
+      titulo: "Kit Principia para Rotina de Skincare Pele Sensível",
+      vendedor: "Mais Vendido",
+      categoria: "Beleza & Estética",
+      avaliacao: "4.9",
+      vendas: "+10mil vendidos",
+      precoOriginal: "R$ 137,00",
+      precoPromocional: "R$ 76,99",
+      desconto: "43% OFF no Pix",
+      destaque: "",
+      imagem: "assents/mercado_livre_files/kit_neutrodina.jpeg",
+      link: "https://meli.la/1E5txSM",
+      tags: ["Proteção FPS 60", "Compra Garantida"]
+    },
+    {
+      titulo: "Capa Colchão Queen Padrão Impermeável Antialérgico Protetor",
+      vendedor: "Mais Vendido",
+      categoria: "Casa & Utilidades",
+      avaliacao: "4.8",
+      vendas: "+50mil vendidos",
+      precoOriginal: "R$ 78,98",
+      precoPromocional: "R$ 39,98",
+      desconto: "49% OFF",
+      destaque: "",
+      imagem: "assents/mercado_livre_files/capa_para_colchao.jpeg",
+      link: "https://meli.la/2i4Gk8r",
+      tags: ["100% Impermeável", "Compra Garantida"]
+    },
+    {
+      titulo: "Carregador Turbo 40w Compatível Com iPhone USB",
+      vendedor: "Mais Vendido",
+      categoria: "Tecnologia & Gadgets",
+      avaliacao: "4.8",
+      vendas: "+50mil vendidos",
+      precoOriginal: "R$ 79,11",
+      precoPromocional: "R$ 33,00",
+      desconto: "58% OFF",
+      destaque: "",
+      imagem: "assents/mercado_livre_files/carregador_ultra.jpeg",
+      link: "https://meli.la/2E5Qr5a",
+      tags: ["Carga Ultra Rápida", "Compra Garantida"]
+    },
+    {
+      titulo: "Kit Com 10 Cuecas Boxer Masculina Microfibra Original",
+      vendedor: "Mais Vendido",
+      categoria: "Moda & Acessórios",
+      avaliacao: "4.7",
+      vendas: "+100mil vendidos",
+      precoOriginal: "R$ 138,00",
+      precoPromocional: "R$ 78,99",
+      desconto: "42% OFF",
+      destaque: "",
+      imagem: "assents/mercado_livre_files/kit_cueca.jpeg",
+      link: "https://meli.la/2YWv7Fb",
+      tags: ["Microfibra Premium", "Compra Garantida"]
+    },
+    {
+      titulo: "Ar Condicionado Consul Split Inverter 12000btus Cor Branco",
+      vendedor: "Oferta Imperdível",
+      categoria: "Casa & Utilidades",
+      avaliacao: "5.0",
+      vendas: "+100 vendidos",
+      precoOriginal: "R$ 4.860,00",
+      precoPromocional: "R$ 1.642,00",
+      desconto: "66% OFF no Pix",
+      destaque: "Economia de Energia",
+      imagem: "assents/mercado_livre_files/ar_condicionao.png",
+      link: "https://meli.la/31S9DUP",
+      tags: ["Consul Split Inverter", "12.000 BTUs"]
+    },
+    {
+      titulo: "Armani Beauty Perfume Masculino Acqua Di Giò Eau de Toilette 100ml",
+      vendedor: "Mais Vendido",
+      categoria: "Beleza & Estética",
+      avaliacao: "4.7",
+      vendas: "+1000 vendidos",
+      precoOriginal: "R$ 819,00",
+      precoPromocional: "R$ 447,99",
+      desconto: "45% OFF",
+      destaque: "12x R$ 43,32",
+      imagem: "assents/mercado_livre_files/perfume_acqua_de_gio.png",
+      link: "https://meli.la/32SjbFA",
+      tags: ["Perfume Importado", "Fragrância Marcante"]
+    },
+    {
+      titulo: "10 Calcinha Infantil Algodão Tradicional Menina Atacado",
+      vendedor: "Mais Vendido",
+      categoria: "Moda & Acessórios",
+      avaliacao: "4.7",
+      vendas: "+10mil vendidos",
+      precoOriginal: "R$ 34,90",
+      precoPromocional: "R$ 31,06",
+      desconto: "11% OFF",
+      destaque: "Kit Atacado",
+      imagem: "assents/mercado_livre_files/kit_calcinhas_infantil.png",
+      link: "https://meli.la/1a4HhKG",
+      tags: ["100% Algodão", "Conforto Infantil"]
+    },
+    {
+      titulo: "Perfume Árabe - Lattafa Yara - Perfume Feminino Edp 100ml",
+      vendedor: "Mais Buscado",
+      categoria: "Beleza & Estética",
+      avaliacao: "4.8",
+      vendas: "+500 vendidos",
+      precoOriginal: "R$ 327,09",
+      precoPromocional: "R$ 179,90",
+      desconto: "45% OFF",
+      destaque: "12x R$ 17,78",
+      imagem: "assents/mercado_livre_files/perfume_lattafa_yara.png",
+      link: "https://meli.la/2QQgm6T",
+      tags: ["Perfume Árabe Lattafa", "Fixação Intensa"]
+    },
+    {
+      titulo: "Central Multimídia First Option 7810h Com Espelhamento E Bluetooth",
+      vendedor: "Mais Vendido",
+      categoria: "Automotivo & Ferramentas",
+      avaliacao: "4.5",
+      vendas: "+10mil vendidos",
+      precoOriginal: "R$ 225,00",
+      precoPromocional: "R$ 213,75",
+      desconto: "5% OFF no Pix",
+      destaque: "Espelhamento Android/iOS",
+      imagem: "assents/mercado_livre_files/mutimidia_option_7810h.png",
+      link: "https://meli.la/1md1sQ7",
+      tags: ["Tela Touchscreen", "Bluetooth & USB"]
+    },
+    {
+      titulo: "Coturno Militar De Segurança Bota Adventure Zíper Premium",
+      vendedor: "Mais Vendido",
+      categoria: "Moda & Acessórios",
+      avaliacao: "4.8",
+      vendas: "+5mil vendidos",
+      precoOriginal: "R$ 249,99",
+      precoPromocional: "R$ 159,64",
+      desconto: "36% OFF",
+      destaque: "7x R$ 22,81 sem juros",
+      imagem: "assents/mercado_livre_files/coturno_militar.png",
+      link: "https://meli.la/14Wa8c8",
+      tags: ["Couro Resistente", "Zíper Lateral"]
+    },
+    {
+      titulo: "Perfume Masculino Azzaro Wanted Edt 100ml",
+      vendedor: "Mais Vendido",
+      categoria: "Beleza & Estética",
+      avaliacao: "4.8",
+      vendas: "+10mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "R$ 408,00",
+      desconto: "Frete Grátis",
+      destaque: "12x R$ 39,45",
+      imagem: "assents/mercado_livre_files/perfume_masculino_azzaro.png",
+      link: "https://meli.la/1bKa9QP",
+      tags: ["Azzaro Original", "Fragrância Premium"]
+    },
+    {
+      titulo: "Kit 4 Camisetas Masculinas Dry Lobo Alpha",
+      vendedor: "Mais Buscado",
+      categoria: "Moda & Acessórios",
+      avaliacao: "4.8",
+      vendas: "+1000 vendidos",
+      precoOriginal: "",
+      precoPromocional: "R$ 199,60",
+      desconto: "Kit com 4",
+      destaque: "12x R$ 19,76",
+      imagem: "assents/mercado_livre_files/kit_4camisetas_masculinas.png",
+      link: "https://meli.la/18it4jR",
+      tags: ["Tecnologia DryFit", "Ideal para Treino"]
+    },
+    {
+      titulo: "Chinelo Havaianas Simpsons Top Original Masculino Feminino",
+      vendedor: "Oferta Imperdível",
+      categoria: "Moda & Acessórios",
+      avaliacao: "4.9",
+      vendas: "+10mil vendidos",
+      precoOriginal: "R$ 78,99",
+      precoPromocional: "R$ 45,90",
+      desconto: "41% OFF",
+      destaque: "Edição Especial",
+      imagem: "assents/mercado_livre_files/havaianas_simpsons.png",
+      link: "https://meli.la/2LYSLyK",
+      tags: ["Havaianas Simpsons", "Original"]
+    },
+    {
+      titulo: "Bolsa Feminina Transversal e Alça De Mão E Selten Cor Preto",
+      vendedor: "Mais Vendido",
+      categoria: "Moda & Acessórios",
+      avaliacao: "4.8",
+      vendas: "+5mil vendidos",
+      precoOriginal: "R$ 78,89",
+      precoPromocional: "R$ 58,00",
+      desconto: "26% OFF",
+      destaque: "Selten Original",
+      imagem: "assents/mercado_livre_files/bolsa_feminina.png",
+      link: "https://meli.la/2Ho8WjW",
+      tags: ["Com Alça Transversal", "Design Elegante"]
+    },
+    {
+      titulo: "Balança Digital Corporal Bioimpedância Aplicativo Bluetooth Relaxmedic",
+      vendedor: "Mais Vendido",
+      categoria: "Saúde & Fitness",
+      avaliacao: "4.9",
+      vendas: "+100mil vendidos",
+      precoOriginal: "R$ 279,90",
+      precoPromocional: "R$ 110,54",
+      desconto: "60% OFF",
+      destaque: "App Conectado",
+      imagem: "assents/mercado_livre_files/balanca_digital.png",
+      link: "https://meli.la/28Z6oTY",
+      tags: ["Medição de Gordura", "Bluetooth Sync"]
+    },
+    {
+      titulo: "Britânia Escova Secadora Bec02pr 4 Em 1 1300w Cor Preto e Rosa",
+      vendedor: "Mais Vendido",
+      categoria: "Beleza & Estética",
+      avaliacao: "4.8",
+      vendas: "+100mil vendidos",
+      precoOriginal: "R$ 139,90",
+      precoPromocional: "R$ 89,90",
+      desconto: "35% OFF",
+      destaque: "4 em 1 - 1300W",
+      imagem: "assents/mercado_livre_files/escova_secadora.png",
+      link: "https://meli.la/2iS9XzL",
+      tags: ["Seca, Escova e Modela", "Britânia Original"]
+    },
+    {
+      titulo: "Kit Hidratação Facial + Olhos Anti Sinais - Kokeshi Milagre Do Arroz",
+      vendedor: "Mais Vendido",
+      categoria: "Beleza & Estética",
+      avaliacao: "4.8",
+      vendas: "+10mil vendidos",
+      precoOriginal: "R$ 55,90",
+      precoPromocional: "R$ 44,90",
+      desconto: "19% OFF",
+      destaque: "Tratamento Completo",
+      imagem: "assents/mercado_livre_files/kit_hidratacao_facial.png",
+      link: "https://meli.la/21QuJix",
+      tags: ["Pele de Porcelana", "Anti-Sinais"]
+    },
+    {
+      titulo: "Conjunto Fitness Virginia Top Shorts Meia Coxa Cintura Alta",
+      vendedor: "Mais Vendido",
+      categoria: "Saúde & Fitness",
+      avaliacao: "4.5",
+      vendas: "+100mil vendidos",
+      precoOriginal: "R$ 69,00",
+      precoPromocional: "R$ 34,00",
+      desconto: "50% OFF",
+      destaque: "Cintura Alta Modeladora",
+      imagem: "assents/mercado_livre_files/conjunto_fitness_virginia.png",
+      link: "https://meli.la/1hk5bjE",
+      tags: ["Tecido Suplex", "Não Fica Transparente"]
+    },
+    {
+      titulo: "Calça Legging Leg Flare Zero Transparência Grossa Academia",
+      vendedor: "Mais Vendido",
+      categoria: "Saúde & Fitness",
+      avaliacao: "4.7",
+      vendas: "+50mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "R$ 59,90",
+      desconto: "Tecido Encorpado",
+      destaque: "Corte Flare",
+      imagem: "assents/mercado_livre_files/calca_legging.png",
+      link: "https://meli.la/2we6JN1",
+      tags: ["Zero Transparência", "Modelagem Perfeita"]
+    },
+    {
+      titulo: "Kit 3 Conjunto Top Shorts Feminino Los Angeles Fitness",
+      vendedor: "Mais Compartilhado",
+      categoria: "Saúde & Fitness",
+      avaliacao: "4.7",
+      vendas: "+5mil vendidos",
+      precoOriginal: "R$ 78,00",
+      precoPromocional: "R$ 62,00",
+      desconto: "20% OFF",
+      destaque: "Kit com 3 Conjuntos",
+      imagem: "assents/mercado_livre_files/kit_3conjuntos_top_shorts.png",
+      link: "https://meli.la/1SDLnJw",
+      tags: ["Cores Sortidas", "Excelente Custo Benefício"]
+    },
+    {
+      titulo: "Tênis Puma Caven Corrida Caminhada Macio Treino Oferta",
+      vendedor: "Oferta Imperdível",
+      categoria: "Moda & Acessórios",
+      avaliacao: "4.9",
+      vendas: "+100 vendidos",
+      precoOriginal: "R$ 333,00",
+      precoPromocional: "R$ 99,90",
+      desconto: "70% OFF",
+      destaque: "Puma Caven",
+      imagem: "assents/mercado_livre_files/tenis_puma_macio.png",
+      link: "https://meli.la/2Y1db8p",
+      tags: ["Conforto & Estilo", "Puma Original"]
+    },
+    {
+      titulo: "Cinta Modeladora Feminina Com Barbatana Redutora Cintura 750",
+      vendedor: "Mais Vendido",
+      categoria: "Beleza & Estética",
+      avaliacao: "4.6",
+      vendas: "+50mil vendidos",
+      precoOriginal: "R$ 179,90",
+      precoPromocional: "R$ 101,00",
+      desconto: "43% OFF",
+      destaque: "6x R$ 16,83 sem juros",
+      imagem: "assents/mercado_livre_files/cinta_seladora.png",
+      link: "https://meli.la/2tXy8Qb",
+      tags: ["Com Barbatanas", "Redução de Medidas"]
+    }
+  ],
+
+  // 2. KIWIFY (14 Infoprodutos)
+  kiwify: [
+    {
+      titulo: "Manutenção de Software - Treinamento Especializado",
+      vendedor: "Kiwify Infoproduto",
+      categoria: "Tecnologia & Gadgets",
+      avaliacao: "4.9",
+      vendas: "+1.200 alunos",
+      precoOriginal: "",
+      precoPromocional: "R$ 257,00",
+      desconto: "Acesso Imediato",
+      destaque: "Inscrições Abertas",
+      imagem: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/zTITG5e?afid=jCoaqlbT",
+      tags: ["Treinamento Prático", "Garantia 7 Dias"]
+    },
+    {
+      titulo: "Prova Decifrada - Método Ideal para Concurseiros",
+      vendedor: "Kiwify Infoproduto",
+      categoria: "Educação & Cursos",
+      avaliacao: "5.0",
+      vendas: "+3.400 alunos",
+      precoOriginal: "R$ 697,00",
+      precoPromocional: "R$ 497,00",
+      desconto: "Oferta Especial",
+      destaque: "Material Focado",
+      imagem: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/HTI7ir4?afid=hn4uSoMK",
+      tags: ["Para Concursos", "Download/Acesso Imediato"]
+    },
+    {
+      titulo: "21 Dias de Oração pela Família e Restauração",
+      vendedor: "Kiwify E-book",
+      categoria: "Desenvolvimento Pessoal",
+      avaliacao: "4.9",
+      vendas: "+8.500 leitores",
+      precoOriginal: "R$ 49,90",
+      precoPromocional: "R$ 29,90",
+      desconto: "40% OFF",
+      destaque: "Guia Digital",
+      imagem: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/fzrKAu7?afid=WLhg14uq",
+      tags: ["Leitura Digital", "Acesso Imediato"]
+    },
+    {
+      titulo: "Treinamento Completo de Vendas & Mídia",
+      vendedor: "Kiwify Infoproduto",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.8",
+      vendas: "+950 alunos",
+      precoOriginal: "",
+      precoPromocional: "R$ 997,00",
+      desconto: "Formação Completa",
+      destaque: "Com Suporte",
+      imagem: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/4KQCJIS?afid=7vsfCawu",
+      tags: ["Curso Estruturado", "Garantia 7 Dias"]
+    },
+    {
+      titulo: "Manual Prático da Bíblia",
+      vendedor: "Kiwify E-book",
+      categoria: "Desenvolvimento Pessoal",
+      avaliacao: "4.9",
+      vendas: "+4.100 leitores",
+      precoOriginal: "R$ 120,00",
+      precoPromocional: "R$ 79,90",
+      desconto: "33% OFF",
+      destaque: "Conteúdo Exclusivo",
+      imagem: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/bBAoBrp?afid=stCvcVaQ",
+      tags: ["Material em PDF", "Acesso Imediato"]
+    },
+    {
+      titulo: "Competência Administrativa & Gestão",
+      vendedor: "Kiwify Infoproduto",
+      categoria: "Educação & Cursos",
+      avaliacao: "4.8",
+      vendas: "+1.800 alunos",
+      precoOriginal: "R$ 97,00",
+      precoPromocional: "R$ 49,00",
+      desconto: "Promoção",
+      destaque: "Para Carreiras",
+      imagem: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/aj515L1?afid=JuDsjfXJ",
+      tags: ["Certificado de Conclusão", "Garantia 7 Dias"]
+    },
+    {
+      titulo: "Lista de Fornecedores Oficiais + E-books Bônus",
+      vendedor: "Kiwify Infoproduto",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.9",
+      vendas: "+12.000 acessos",
+      precoOriginal: "R$ 247,00",
+      precoPromocional: "R$ 97,00",
+      desconto: "60% OFF",
+      destaque: "Contatos Validados",
+      imagem: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/d0JymVP?afid=wb5Q23ut",
+      tags: ["Lista de Fornecedores", "Download Imediato"]
+    },
+    {
+      titulo: "Acesso Completo aos Fornecedores Diretos",
+      vendedor: "Kiwify Infoproduto",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.8",
+      vendas: "+6.300 acessos",
+      precoOriginal: "R$ 120,00",
+      precoPromocional: "R$ 67,00",
+      desconto: "Oferta Exclusiva",
+      destaque: "Acesso Vitalício",
+      imagem: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/56JaTH2?afid=wgNfefsc",
+      tags: ["Direto da Fábrica", "Garantia 7 Dias"]
+    },
+    {
+      titulo: "Acesso Anual VIP - Comunidade & Conteúdos",
+      vendedor: "Kiwify Assinatura",
+      categoria: "Negócios & Mídia",
+      avaliacao: "5.0",
+      vendas: "+890 membros",
+      precoOriginal: "R$ 197,00",
+      precoPromocional: "R$ 97,00",
+      desconto: "Plano Anual",
+      destaque: "Renovação Anual",
+      imagem: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/IGITkPH?afid=ZYcaMNPI",
+      tags: ["Comunidade VIP", "Suporte Contínuo"]
+    },
+    {
+      titulo: "Combo E-Book Brownies & Sobremesas Lucrativas",
+      vendedor: "Kiwify Receitas",
+      categoria: "Gastronomia & Receitas",
+      avaliacao: "4.9",
+      vendas: "+5.400 vendas",
+      precoOriginal: "R$ 112,00",
+      precoPromocional: "R$ 95,00",
+      desconto: "Guia Completo",
+      destaque: "Passo a Passo",
+      imagem: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/6e4y3Vv?afid=R3Jzvzye",
+      tags: ["Renda Extra", "Download Imediato"]
+    },
+    {
+      titulo: "Planner Financeiro Anual Inteligente",
+      vendedor: "Kiwify Utilitário",
+      categoria: "Desenvolvimento Pessoal",
+      avaliacao: "4.8",
+      vendas: "+2.900 downloads",
+      precoOriginal: "R$ 49,90",
+      precoPromocional: "R$ 24,90",
+      desconto: "50% OFF",
+      destaque: "Organização Pessoal",
+      imagem: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/p7ZGJ94?afid=9pCkyTb4",
+      tags: ["Planilha/PDF", "Download Imediato"]
+    },
+    {
+      titulo: "Curso Vivendo de Acessórios & Importação",
+      vendedor: "Kiwify Treinamento",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.9",
+      vendas: "+1.600 alunos",
+      precoOriginal: "R$ 397,00",
+      precoPromocional: "R$ 297,00",
+      desconto: "Treinamento VIP",
+      destaque: "Passo a Passo",
+      imagem: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/CqH4vCT?afid=U3rzrJ9g",
+      tags: ["Aulas em Vídeo", "Garantia 7 Dias"]
+    },
+    {
+      titulo: "Sistema de Disparos de Mensagens Automáticas",
+      vendedor: "Kiwify Software",
+      categoria: "Tecnologia & Gadgets",
+      avaliacao: "4.8",
+      vendas: "+3.100 licenças",
+      precoOriginal: "R$ 89,90",
+      precoPromocional: "R$ 49,90",
+      desconto: "Pacote de Envio",
+      destaque: "Automação",
+      imagem: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/qOXikpr?afid=wKwwqghL",
+      tags: ["Software/Ferramenta", "Acesso Imediato"]
+    },
+    {
+      titulo: "Treinamento Estratégia de Vendas para Afiliados",
+      vendedor: "Kiwify Treinamento",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.9",
+      vendas: "+7.800 alunos",
+      precoOriginal: "R$ 197,00",
+      precoPromocional: "R$ 97,00",
+      desconto: "Starter Afiliado",
+      destaque: "Aulas Práticas",
+      imagem: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kiwify.com.br/M4zsHTE?afid=6WI0l8OP",
+      tags: ["Passo a Passo", "Garantia 7 Dias"]
+    }
+  ],
+
+  // 3. KIRVANO (17 Infoprodutos)
+  kirvano: [
+    {
+      titulo: "Escola das Manicures - Curso Profissional",
+      vendedor: "Por JS MONEVO",
+      categoria: "Beleza & Estética",
+      avaliacao: "4.9",
+      vendas: "+4.200 alunas",
+      precoOriginal: "R$ 97,00",
+      precoPromocional: "R$ 47,00",
+      desconto: "Renda Extra",
+      destaque: "Certificado Incluso",
+      imagem: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/cc52eab5-19f1-4ab8-bfff-90337b3c1413",
+      tags: ["Alongamento de Unhas", "Acesso Imediato"]
+    },
+    {
+      titulo: "+ de 100 Receitas Exclusivas de Bolsa de Crochê",
+      vendedor: "Por Eduardo Martinez",
+      categoria: "Artesanato & Hobbies",
+      avaliacao: "4.8",
+      vendas: "+6.100 vendas",
+      precoOriginal: "R$ 67,00",
+      precoPromocional: "R$ 29,90",
+      desconto: "Low Ticket",
+      destaque: "Passo a Passo em PDF",
+      imagem: "https://images.unsplash.com/photo-1584992236310-6edddc08acff?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/06f3e91a-4e29-4c91-8727-8beb9fa55f9c",
+      tags: ["100+ Receitas", "Download Imediato"]
+    },
+    {
+      titulo: "Emagrecer Permanente + Aplicativo Auxiliar",
+      vendedor: "Por JS Empreendimentos",
+      categoria: "Saúde & Fitness",
+      avaliacao: "4.9",
+      vendas: "+8.900 alunos",
+      precoOriginal: "R$ 147,00",
+      precoPromocional: "R$ 47,00",
+      desconto: "Saúde & Bem-Estar",
+      destaque: "Perda de 5 a 7kg em 20 dias",
+      imagem: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/cce71346-07e9-49d5-bd49-572af358b9b8",
+      tags: ["Reeducação Alimentar", "App Auxiliar Incluso"]
+    },
+    {
+      titulo: "Nail Designer - Escola de Unhas Profissionais",
+      vendedor: "Por JS Empreendimentos",
+      categoria: "Beleza & Estética",
+      avaliacao: "4.9",
+      vendas: "+11.000 alunas",
+      precoOriginal: "R$ 49,90",
+      precoPromocional: "R$ 27,90",
+      desconto: "Promoção Exclusiva",
+      destaque: "Fibra de Vidro & Encapsulada",
+      imagem: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/2035ab79-83c2-4d0b-bb5b-6960d0d98b50?aff=0739e918-73c6-486a-8857-04fc49d134ff",
+      tags: ["Manicure & Pedicure", "Acesso Vitalício"]
+    },
+    {
+      titulo: "Curso Designer de Sobrancelhas Profissional",
+      vendedor: "Por Marilia Fernandes",
+      categoria: "Beleza & Estética",
+      avaliacao: "4.8",
+      vendas: "+3.500 alunas",
+      precoOriginal: "R$ 97,00",
+      precoPromocional: "R$ 47,00",
+      desconto: "Do Zero ao Avançado",
+      destaque: "Método Validado",
+      imagem: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/ea057d3a-0266-418d-abae-a3fab2100fd8",
+      tags: ["Estética Facial", "Certificado Incluso"]
+    },
+    {
+      titulo: "Curso Detox de Relacionamentos",
+      vendedor: "Por Dra. Mayra Cardozo",
+      categoria: "Desenvolvimento Pessoal",
+      avaliacao: "4.9",
+      vendas: "+2.100 alunas",
+      precoOriginal: "R$ 197,00",
+      precoPromocional: "R$ 97,00",
+      desconto: "Desenvolvimento Pessoal",
+      destaque: "Superação & Autoestima",
+      imagem: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/54299cd5-433d-42f4-a1e0-df16a164e6be",
+      tags: ["Para Mulheres", "Suporte Especializado"]
+    },
+    {
+      titulo: "Desafio Secar em 20 Dias + Aplicativo",
+      vendedor: "Por JS LTDA",
+      categoria: "Saúde & Fitness",
+      avaliacao: "4.9",
+      vendas: "+15.000 participantes",
+      precoOriginal: "R$ 97,00",
+      precoPromocional: "R$ 37,90",
+      desconto: "60% OFF",
+      destaque: "Cardápio Exclusivo",
+      imagem: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/722804dd-e67d-459d-aeb8-b22b023df723?aff=f6e7cf13-dc4e-4d73-b558-4f2987a5a003",
+      tags: ["Treino & Cardápio", "App Exclusivo"]
+    },
+    {
+      titulo: "Método Ninja - Arbitragem em Apostas Esportivas",
+      vendedor: "Por Suporte Ninja",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.7",
+      vendas: "+1.900 alunos",
+      precoOriginal: "R$ 297,00",
+      precoPromocional: "R$ 147,00",
+      desconto: "Renda Extra",
+      destaque: "Investimento Sem Risco",
+      imagem: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/085c86ec-89a7-431e-8287-5cfea965e681",
+      tags: ["Arbitragem Esportiva", "Aulas Passo a Passo"]
+    },
+    {
+      titulo: "Desafio 21 Dias de Pilates na Prática",
+      vendedor: "Por Pilates na Prática",
+      categoria: "Saúde & Fitness",
+      avaliacao: "4.9",
+      vendas: "+4.800 alunos",
+      precoOriginal: "R$ 97,00",
+      precoPromocional: "R$ 47,00",
+      desconto: "Saúde & Postura",
+      destaque: "Exercícios em Casa",
+      imagem: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/51a37f2c-d91e-4bc7-b48a-970dcd9e4862",
+      tags: ["App Próprio", "Ideal para 30+"]
+    },
+    {
+      titulo: "Árabe do 0 com a Lamis - Somente Conversação",
+      vendedor: "Por Lamis Assaad",
+      categoria: "Educação & Cursos",
+      avaliacao: "5.0",
+      vendas: "+750 alunos",
+      precoOriginal: "R$ 497,00",
+      precoPromocional: "R$ 297,00",
+      desconto: "Idiomas",
+      destaque: "Foco em Conversação",
+      imagem: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/b8d61d09-c9c6-4f43-a1e4-306fad9dd140",
+      tags: ["Árabe Prático", "Aulas Diretas"]
+    },
+    {
+      titulo: "SRT Cinema - Escala de Vídeos no YouTube",
+      vendedor: "Por Emerson Ferreira",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.8",
+      vendas: "+1.300 licenças",
+      precoOriginal: "R$ 197,00",
+      precoPromocional: "R$ 97,00",
+      desconto: "Ferramentas & Mídia",
+      destaque: "Criação de Conteúdo",
+      imagem: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/bfd58831-7330-478c-9ede-13f66f61c95e",
+      tags: ["Crescimento YouTube", "Escala de Vídeos"]
+    },
+    {
+      titulo: "Curso Lash Designer Iniciante - Extensão de Cílios",
+      vendedor: "Por Luanda Especialista",
+      categoria: "Beleza & Estética",
+      avaliacao: "4.9",
+      vendas: "+2.700 alunas",
+      precoOriginal: "R$ 147,00",
+      precoPromocional: "R$ 67,00",
+      desconto: "Beleza & Estética",
+      destaque: "Com Certificado",
+      imagem: "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/52c1b3f7-5bb8-45fb-b310-dca07cc257d8",
+      tags: ["Apostila + Vídeo Aulas", "Cílios Perfeitos"]
+    },
+    {
+      titulo: "Biofy.Shop - Transforme a Bio em Vitrine",
+      vendedor: "Por Bruno Dantas",
+      categoria: "Tecnologia & Gadgets",
+      avaliacao: "4.8",
+      vendas: "+1.100 usuários",
+      precoOriginal: "R$ 97,00",
+      precoPromocional: "R$ 47,00",
+      desconto: "Ferramenta Digital",
+      destaque: "Carrinho com WhatsApp",
+      imagem: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/2c3b081d-1d03-4f15-a7a3-25cac5114f5e",
+      tags: ["Vitrine para Instagram", "Integração WhatsApp"]
+    },
+    {
+      titulo: "Henri - Crie Seu Clone com Inteligência Artificial",
+      vendedor: "Por Henri.IA",
+      categoria: "Tecnologia & Gadgets",
+      avaliacao: "4.9",
+      vendas: "+3.800 usuários",
+      precoOriginal: "R$ 197,00",
+      precoPromocional: "R$ 97,00",
+      desconto: "Inteligência Artificial",
+      destaque: "Poder Computacional",
+      imagem: "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/a8d31a80-5b6c-423a-adb0-f6b60eb00702",
+      tags: ["Clonagem Digital IA", "Ferramenta Avançada"]
+    },
+    {
+      titulo: "Planilha Automatizada de Mão de Obra de Pedreiro",
+      vendedor: "Por ReforMAIS",
+      categoria: "Automotivo & Ferramentas",
+      avaliacao: "4.8",
+      vendas: "+9.200 downloads",
+      precoOriginal: "R$ 79,90",
+      precoPromocional: "R$ 39,90",
+      desconto: "Construção Civil",
+      destaque: "Cálculo Exato em m²",
+      imagem: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/87482aec-99b3-426b-9217-b574ab9bb012",
+      tags: ["Planilha Excel", "Para Obras & Pedreiros"]
+    },
+    {
+      titulo: "Guia de Terapia Holística & Frequências Sonoras",
+      vendedor: "Por Felipe Terapia",
+      categoria: "Desenvolvimento Pessoal",
+      avaliacao: "4.9",
+      vendas: "+1.400 leitores",
+      precoOriginal: "R$ 97,00",
+      precoPromocional: "R$ 47,00",
+      desconto: "Bem-Estar & Cura",
+      destaque: "Equilíbrio Energético",
+      imagem: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/dcb515d7-1b76-4077-a7c1-2e4a6b418599",
+      tags: ["Frequências Sonoras", "Cura Corpo & Mente"]
+    },
+    {
+      titulo: "Nova Profissão - Treinamento de Negócios Online",
+      vendedor: "Por Suporte AFILIAGRAM",
+      categoria: "Negócios & Mídia",
+      avaliacao: "4.9",
+      vendas: "+18.000 alunos",
+      precoOriginal: "R$ 297,00",
+      precoPromocional: "R$ 97,00",
+      desconto: "Marketing Digital",
+      destaque: "Aulas ao Vivo & Suporte",
+      imagem: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/6cb5e650-d640-401b-8a14-f8cf6fb18cdb",
+      tags: ["Empreendedorismo Digital", "Acompanhamento VIP"]
+    },
+    {
+      titulo: "Arte em Biscuit - Modelagem de Porcelana Fria",
+      vendedor: "Por Christoffer",
+      categoria: "Artesanato & Hobbies",
+      avaliacao: "4.8",
+      vendas: "+1.200 alunos",
+      precoOriginal: "R$ 89,90",
+      precoPromocional: "R$ 39,90",
+      desconto: "Artesanato & Hobby",
+      destaque: "Técnicas de Pintura & Modelagem",
+      imagem: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=500&q=80",
+      link: "https://pay.kirvano.com/r/4be63625-ada9-4208-8b0d-584b411567a2",
+      tags: ["Porcelana Fria", "Ideal para Iniciantes"]
+    }
+  ]
+};
+
+// CRONÔMETRO REGRESSIVO
+function iniciarCronometro() {
+  const agora = new Date();
+  const meiaNoite = new Date();
+  meiaNoite.setHours(24, 0, 0, 0);
+
+  let diferenca = Math.floor((meiaNoite - agora) / 1000);
+
+  setInterval(() => {
+    if (diferenca <= 0) diferenca = 86400; // Reseta 24h
+    const horas = Math.floor(diferenca / 3600).toString().padStart(2, '0');
+    const minutos = Math.floor((diferenca % 3600) / 60).toString().padStart(2, '0');
+    const segundos = Math.floor(diferenca % 60).toString().padStart(2, '0');
+    
+    const elemento = document.getElementById('cronometro-ofertas');
+    if (elemento) elemento.innerText = `${horas}:${minutos}:${segundos}`;
+    diferenca--;
+  }, 1000);
+}
+
+// BOTÕES DE CATEGORIAS
+function carregarBotoesCategorias() {
+  const container = document.getElementById('container-categorias');
+  if (!container) return;
+  container.innerHTML = '';
+
+  const produtos = baseProdutos[abaAtual] || [];
+  const categoriasUnicas = ['todas', ...new Set(produtos.map(p => p.categoria).filter(Boolean))];
+
+  categoriasUnicas.forEach(cat => {
+    const nomeExibicao = cat === 'todas' ? 'Todas as Categorias' : cat;
+    const ativo = cat === categoriaAtiva ? 'bg-blue-600 text-white font-bold shadow-md' : 'bg-white text-gray-600 hover:bg-gray-200 border border-gray-200';
+    
+    const btnHTML = `
+      <button onclick="filtrarPorCategoria('${cat}')" 
+              class="px-4 py-1.5 rounded-full text-xs transition-all ${ativo}">
+        ${nomeExibicao}
+      </button>
+    `;
+    container.innerHTML += btnHTML;
+  });
+}
+
+// RENDERIZAÇÃO DOS CARDS
+function renderizarProdutos(lista) {
+  const grid = document.getElementById('grid-produtos');
+  if (!grid) return;
+  grid.innerHTML = '';
+
+  if (!lista || lista.length === 0) {
+    grid.innerHTML = `
+      <div class="col-span-full text-center py-12">
+        <i class="fas fa-search text-gray-300 fa-3x mb-3"></i>
+        <p class="text-gray-500 font-medium">Nenhum produto encontrado com os filtros selecionados.</p>
+      </div>
+    `;
+    return;
+  }
+
+  lista.forEach(item => {
+    const cardHTML = `
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300">
+        <div>
+          <div class="relative bg-gray-50 p-6 flex justify-center border-b border-gray-100">
+            <img class="h-56 object-contain rounded-lg" src="${item.imagem}" alt="${item.titulo}">
+            ${item.desconto ? `<span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-md shadow">${item.desconto}</span>` : ''}
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs text-blue-600 font-bold uppercase tracking-wide">${item.vendedor}</span>
+              ${item.categoria ? `<span class="text-[10px] bg-gray-100 text-gray-500 font-semibold px-2 py-0.5 rounded">${item.categoria}</span>` : ''}
+            </div>
+            
+            <h3 class="font-bold text-lg text-gray-900 mb-1 leading-snug">${item.titulo}</h3>
+
+            <!-- AVALIAÇÃO E PROVA SOCIAL -->
+            <div class="flex items-center space-x-2 my-2 text-xs">
+              <div class="flex text-amber-400">
+                <i class="fas fa-star"></i>
+                <span class="font-bold text-gray-800 ml-1">${item.avaliacao || '4.8'}</span>
+              </div>
+              <span class="text-gray-300">|</span>
+              <span class="text-gray-500 font-medium">${item.vendas || '+1mil vendidos'}</span>
+            </div>
+            
+            <div class="my-4">
+              ${item.precoOriginal ? `<span class="text-xs text-gray-400 line-through">${item.precoOriginal}</span>` : ''}
+              <div class="flex items-baseline space-x-2 mt-0.5">
+                <span class="text-2xl font-extrabold text-gray-900">${item.precoPromocional}</span>
+              </div>
+              ${item.destaque ? `<span class="inline-block text-xs text-blue-700 font-bold bg-blue-50 px-2 py-0.5 rounded mt-1 border border-blue-200">${item.destaque}</span>` : ''}
+            </div>
+
+            <ul class="text-xs text-gray-600 space-y-1.5 mb-6">
+              ${item.tags.map(tag => `<li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> ${tag}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <a href="${item.link}" target="_blank" rel="noopener noreferrer" 
+             class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-3 px-4 rounded-xl transition-colors duration-200 shadow-md">
+            Ir para oferta <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+          </a>
+        </div>
+      </div>
+    `;
+    grid.innerHTML += cardHTML;
+  });
+}
+
+// APLICAR FILTROS
+function aplicarFiltros() {
+  let produtos = baseProdutos[abaAtual] || [];
+
+  if (categoriaAtiva !== 'todas') {
+    produtos = produtos.filter(p => p.categoria === categoriaAtiva);
+  }
+
+  const inputBusca = document.getElementById('input-busca');
+  const termo = inputBusca ? inputBusca.value.toLowerCase().trim() : '';
+  if (termo !== '') {
+    produtos = produtos.filter(p => 
+      p.titulo.toLowerCase().includes(termo) || 
+      p.vendedor.toLowerCase().includes(termo) ||
+      (p.categoria && p.categoria.toLowerCase().includes(termo))
+    );
+  }
+
+  renderizarProdutos(produtos);
+}
+
+function filtrarPorCategoria(cat) {
+  categoriaAtiva = cat;
+  carregarBotoesCategorias();
+  aplicarFiltros();
+}
+
+function filtrarPorBusca() {
+  aplicarFiltros();
+}
+
+function trocarAba(categoria) {
+  abaAtual = categoria;
+  categoriaAtiva = 'todas';
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('border-blue-600', 'text-blue-600');
+    btn.classList.add('border-transparent', 'text-gray-500');
+  });
+
+  const abaAtiva = document.getElementById(`tab-${categoria}`);
+  if (abaAtiva) {
+    abaAtiva.classList.remove('border-transparent', 'text-gray-500');
+    abaAtiva.classList.add('border-blue-600', 'text-blue-600');
+  }
+
+  carregarBotoesCategorias();
+  aplicarFiltros();
+}
+
+// CONTROLE DO MODAL DE CONTATO
+function abrirModalContato() {
+  const input = document.getElementById('input-pedido-customizado');
+  const produto = input ? input.value.trim() : '';
+
+  if (produto === '') {
+    alert('Por favor, digite o nome do produto ou curso que você procura!');
+    return;
+  }
+
+  document.getElementById('modal-produto-nome').innerText = produto;
+  document.getElementById('modal-contato').classList.remove('hidden');
+}
+
+function fecharModalContato() {
+  document.getElementById('modal-contato').classList.add('hidden');
+}
+
+// ENVIO DE DADOS PARA O GOOGLE SHEETS
+function salvarPedidoNoSheets(event) {
+  event.preventDefault();
+
+  const produto = document.getElementById('modal-produto-nome').innerText;
+  const contato = document.getElementById('input-contato-cliente').value.trim();
+  const btn = document.getElementById('btn-salvar-modal');
+
+  btn.disabled = true;
+  btn.innerText = "Salvando pedido...";
+
+  fetch(URL_GOOGLE_SHEETS, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      produto: produto,
+      plataforma: abaAtual.toUpperCase(),
+      contato: contato
+    })
+  })
+  .then(() => {
+    alert('Pedido registrado com sucesso! Te avisaremos assim que a oferta estiver disponível.');
+    document.getElementById('input-pedido-customizado').value = '';
+    document.getElementById('input-contato-cliente').value = '';
+    fecharModalContato();
+  })
+  .catch(err => {
+    alert('Ocorreu um erro ao registrar seu pedido. Tente novamente.');
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.innerText = "Cadastrar Pedido";
+  });
+}
+
+// BOTÃO VOLTAR AO TOPO
+window.onscroll = () => {
+  const btn = document.getElementById('btn-topo');
+  if (window.scrollY > 300) {
+    btn.classList.remove('opacity-0', 'pointer-events-none');
+    btn.classList.add('opacity-100');
+  } else {
+    btn.classList.add('opacity-0', 'pointer-events-none');
+    btn.classList.remove('opacity-100');
+  }
+};
+
+function voltarAoTopo() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// INICIALIZAÇÃO
+window.onload = () => {
+  trocarAba('mercadolivre');
+  iniciarCronometro();
+};
