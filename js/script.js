@@ -1,13 +1,17 @@
-// LINK DA SUA API DO GOOGLE APPS SCRIPT (Mantenha a sua URL da Versão 2)
+// =========================================================================
+// CONFIGURAÇÃO DA API DO GOOGLE SHEETS
+// =========================================================================
 const URL_GOOGLE_SHEETS = "https://script.google.com/macros/s/AKfycbzNgBjHqXhkO60L0nXFg_M3NgX4ttpwq6a2wG5v7eMGtfW-_Kumr9ksyBZka_ULRgP-UQ/exec"; 
 
 // Variáveis de Controle de Estado Global
 let abaAtual = 'mercadolivre';
 let categoriaAtiva = 'todas';
 
-// Base de Dados dos Produtos por Plataforma
+// =========================================================================
+// BASE DE DADOS COMPLETA DOS PRODUTOS POR PLATAFORMA
+// =========================================================================
 const baseProdutos = {
-  // 1. MERCADO LIVRE
+// 1. MERCADO LIVRE (Links verificados e corrigidos)
   mercadolivre: [
     {
       titulo: "Creatina Monohidratada Pura 1kg Dark Lab Unidade Sem sabor",
@@ -818,7 +822,9 @@ const baseProdutos = {
   ]
 };
 
-// CRONÔMETRO REGRESSIVO
+// =========================================================================
+// CRONÔMETRO REGRESSIVO DE OFERTAS
+// =========================================================================
 function iniciarCronometro() {
   const agora = new Date();
   const meiaNoite = new Date();
@@ -838,7 +844,9 @@ function iniciarCronometro() {
   }, 1000);
 }
 
-// BOTÕES DE CATEGORIAS
+// =========================================================================
+// RENDERIZAÇÃO DE BOTÕES DE CATEGORIAS
+// =========================================================================
 function carregarBotoesCategorias() {
   const container = document.getElementById('container-categorias');
   if (!container) return;
@@ -861,7 +869,9 @@ function carregarBotoesCategorias() {
   });
 }
 
-// RENDERIZAÇÃO DOS CARDS
+// =========================================================================
+// RENDERIZAÇÃO DOS CARDS DE PRODUTOS
+// =========================================================================
 function renderizarProdutos(lista) {
   const grid = document.getElementById('grid-produtos');
   if (!grid) return;
@@ -893,7 +903,6 @@ function renderizarProdutos(lista) {
             
             <h3 class="font-bold text-lg text-gray-900 mb-1 leading-snug">${item.titulo}</h3>
 
-            <!-- AVALIAÇÃO E PROVA SOCIAL -->
             <div class="flex items-center space-x-2 my-2 text-xs">
               <div class="flex text-amber-400">
                 <i class="fas fa-star"></i>
@@ -928,7 +937,9 @@ function renderizarProdutos(lista) {
   });
 }
 
-// APLICAR FILTROS
+// =========================================================================
+// FILTRAGEM E ABAS
+// =========================================================================
 function aplicarFiltros() {
   let produtos = baseProdutos[abaAtual] || [];
 
@@ -978,7 +989,9 @@ function trocarAba(categoria) {
   aplicarFiltros();
 }
 
-// CONTROLE DO MODAL DE CONTATO
+// =========================================================================
+// CONTROLE DE MODAL
+// =========================================================================
 function abrirModalContato() {
   const input = document.getElementById('input-pedido-customizado');
   const produto = input ? input.value.trim() : '';
@@ -997,12 +1010,12 @@ function fecharModalContato() {
 }
 
 // =========================================================================
-// 🔍 FUNÇÃO DE VALIDAÇÃO AVANÇADA DE CONTATO (E-MAIL OU WHATSAPP)
+// VALIDAÇÃO RIGOROSA DE E-MAILS E TELEFONES/DDI
 // =========================================================================
 function validarEFormatarContato(contatoBruto) {
   const entrada = contatoBruto.trim();
 
-  // 1. VERIFICAÇÃO SE É E-MAIL
+  // 1. Validação de E-mail
   if (entrada.includes('@')) {
     const regexEmail = /^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
     const match = entrada.match(regexEmail);
@@ -1011,38 +1024,36 @@ function validarEFormatarContato(contatoBruto) {
       return { valido: false, mensagem: "Por favor, insira um e-mail válido (exemplo: nome@gmail.com)." };
     }
 
-    const dominindo = match[1].toLowerCase();
+    const dominio = match[1].toLowerCase();
     const dominiosValidos = [
       'gmail.com', 'outlook.com', 'hotmail.com', 'yahoo.com', 
       'icloud.com', 'uol.com.br', 'bol.com.br', 'terra.com.br', 'live.com'
     ];
 
-    if (!dominiosValidos.includes(dominindo)) {
+    if (!dominiosValidos.includes(dominio)) {
       return { 
         valido: false, 
-        mensagem: `O domínio '@${dominindo}' não é aceito. Por favor, utilize um e-mail válido (Gmail, Outlook, Hotmail, Yahoo, etc.).` 
+        mensagem: `O domínio '@${dominio}' não é aceito. Por favor, utilize um e-mail válido (Gmail, Outlook, Hotmail, Yahoo, etc.).` 
       };
     }
 
     return { valido: true, dadoFormatado: entrada.toLowerCase() };
   } 
   
-  // 2. VERIFICAÇÃO SE É TELEFONE / WHATSAPP
+  // 2. Validação de Telefone / WhatsApp com DDI e DDD
   else {
-    // Extrai estritamente somente os dígitos numéricos
     let apenasNumeros = entrada.replace(/\D/g, '');
 
-    // Se o usuário digitou o DDI do Brasil (55), removemos para padronizar
+    // Se vier com DDI 55 e tamanho completo (12 ou 13 dígitos), tratamos corretamente
     if (apenasNumeros.startsWith('55') && (apenasNumeros.length === 13 || apenasNumeros.length === 12)) {
       apenasNumeros = apenasNumeros.substring(2);
     }
 
-    // Valida cel com DDD (11 dígitos, ex: 11999998888) ou Fixo com DDD (10 dígitos)
+    // Celular com DDD (11 dígitos, ex: 11999998888) ou Fixo (10 dígitos)
     if (apenasNumeros.length === 11) {
       const ddd = parseInt(apenasNumeros.substring(0, 2), 10);
       const primeiroDigito = apenasNumeros.charAt(2);
 
-      // DDDs válidos no Brasil variam de 11 a 99
       if (ddd < 11 || ddd > 99 || primeiroDigito !== '9') {
         return { 
           valido: false, 
@@ -1050,11 +1061,10 @@ function validarEFormatarContato(contatoBruto) {
         };
       }
 
-      // Retorna o número sanitizado com o DDI oficial +55 formatado de forma segura
-      return { valido: true, dadoFormatado: `+55${apenasNumeros}` };
+      return { valido: true, dadoFormatado: `55${apenasNumeros}` };
     } 
     else if (apenasNumeros.length === 10) {
-      return { valido: true, dadoFormatado: `+55${apenasNumeros}` };
+      return { valido: true, dadoFormatado: `55${apenasNumeros}` };
     } 
     else {
       return { 
@@ -1065,7 +1075,9 @@ function validarEFormatarContato(contatoBruto) {
   }
 }
 
-// ENVIO DE DADOS PARA O GOOGLE SHEETS COM VALIDAÇÃO PREVENTIVA
+// =========================================================================
+// ENVIO SEGURO PARA O GOOGLE SHEETS
+// =========================================================================
 function salvarPedidoNoSheets(event) {
   event.preventDefault();
 
@@ -1073,7 +1085,6 @@ function salvarPedidoNoSheets(event) {
   const contatoInput = document.getElementById('input-contato-cliente').value;
   const btn = document.getElementById('btn-salvar-modal');
 
-  // Executa a Validação
   const validacao = validarEFormatarContato(contatoInput);
 
   if (!validacao.valido) {
@@ -1081,21 +1092,21 @@ function salvarPedidoNoSheets(event) {
     return;
   }
 
-  // Sanitiza o contato removendo o '+' inicial para não quebrar a requisição POST/Google Sheets
-  const contatoLimpo = validacao.dadoFormatado.replace(/^\+/, '');
-
   btn.disabled = true;
   btn.innerText = "Salvando pedido...";
+
+  const formData = new URLSearchParams();
+  formData.append('produto', produto);
+  formData.append('plataforma', abaAtual.toUpperCase());
+  formData.append('contato', validacao.dadoFormatado);
 
   fetch(URL_GOOGLE_SHEETS, {
     method: 'POST',
     mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      produto: produto,
-      plataforma: abaAtual.toUpperCase(),
-      contato: contatoLimpo
-    })
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: formData.toString()
   })
   .then(() => {
     alert('Pedido registrado com sucesso! Te avisaremos assim que a oferta estiver disponível.');
@@ -1112,7 +1123,9 @@ function salvarPedidoNoSheets(event) {
   });
 }
 
+// =========================================================================
 // BOTÃO VOLTAR AO TOPO
+// =========================================================================
 window.onscroll = () => {
   const btn = document.getElementById('btn-topo');
   if (window.scrollY > 300) {
@@ -1128,7 +1141,9 @@ function voltarAoTopo() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// INICIALIZAÇÃO
+// =========================================================================
+// INICIALIZAÇÃO DA APLICAÇÃO
+// =========================================================================
 window.onload = () => {
   trocarAba('mercadolivre');
   iniciarCronometro();
