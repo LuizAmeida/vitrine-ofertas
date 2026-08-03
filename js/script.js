@@ -52,7 +52,7 @@ const baseProdutos = {
       desconto: "5% OFF",
       destaque: "",
       imagem: "assents/mercado_livre_files/compressor.jpeg",
-      link: "https://meli.la/13BXz83",
+      link: "https://meli.la/2YWv7Fb",
       tags: ["Carro, Moto e Bike", "Compra Garantida"]
     },
     {
@@ -66,7 +66,7 @@ const baseProdutos = {
       desconto: "43% OFF no Pix",
       destaque: "",
       imagem: "assents/mercado_livre_files/kit_neutrodina.jpeg",
-      link: "https://meli.la/1E5txSM",
+      link: "https://meli.la/2E5Qr5a",
       tags: ["Proteção FPS 60", "Compra Garantida"]
     },
     {
@@ -78,9 +78,9 @@ const baseProdutos = {
       precoOriginal: "R$ 78,98",
       precoPromocional: "R$ 39,98",
       desconto: "49% OFF",
-      destaque: "",
+      destaque: "https://meli.la/13BXz83",
       imagem: "assents/mercado_livre_files/capa_para_colchao.jpeg",
-      link: "https://meli.la/2i4Gk8r",
+      link: "",
       tags: ["100% Impermeável", "Compra Garantida"]
     },
     {
@@ -94,7 +94,7 @@ const baseProdutos = {
       desconto: "58% OFF",
       destaque: "",
       imagem: "assents/mercado_livre_files/carregador_ultra.jpeg",
-      link: "https://meli.la/2E5Qr5a",
+      link: "https://meli.la/2i4Gk8r",
       tags: ["Carga Ultra Rápida", "Compra Garantida"]
     },
     {
@@ -108,7 +108,7 @@ const baseProdutos = {
       desconto: "42% OFF",
       destaque: "",
       imagem: "assents/mercado_livre_files/kit_cueca.jpeg",
-      link: "https://meli.la/2YWv7Fb",
+      link: "https://meli.la/1E5txSM",
       tags: ["Microfibra Premium", "Compra Garantida"]
     },
     {
