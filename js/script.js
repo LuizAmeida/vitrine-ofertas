@@ -1081,6 +1081,9 @@ function salvarPedidoNoSheets(event) {
     return;
   }
 
+  // Sanitiza o contato removendo o '+' inicial para não quebrar a requisição POST/Google Sheets
+  const contatoLimpo = validacao.dadoFormatado.replace(/^\+/, '');
+
   btn.disabled = true;
   btn.innerText = "Salvando pedido...";
 
@@ -1091,7 +1094,7 @@ function salvarPedidoNoSheets(event) {
     body: JSON.stringify({
       produto: produto,
       plataforma: abaAtual.toUpperCase(),
-      contato: validacao.dadoFormatado // Envia o dado pré-sanitizado sem símbolos que geram #ERROR!
+      contato: contatoLimpo
     })
   })
   .then(() => {
