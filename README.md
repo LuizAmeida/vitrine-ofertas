@@ -31,16 +31,6 @@
 
 ---
 
-## 🎯 Visão Geral
-
-A **Central de Achados & Cursos** foi projetada para resolver a fragmentação de ofertas de afiliados. A plataforma entrega uma experiência de navegação fluida (*SPA - Single Page Application*), permitindo que o visitante navegue entre abas sem recarregar a página, filtre por categorias, pesquise por palavra-chave em tempo real e realize solicitações de produtos customizados.
-
-### 📊 Cobertura da Vitrine:
-- 📦 **Mercado Livre:** 35 Produtos Físicos selecionados.
-- 🎓 **Kiwify:** 19 Infoprodutos / Cursos com links diretos de Sales Pages.
-- 🚀 **Kirvano:** 16 Infoprodutos / Ferramentas validadas.
-
----
 
 ## ✨ Funcionalidades Principais
 
