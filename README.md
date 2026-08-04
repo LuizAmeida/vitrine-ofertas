@@ -1,3 +1,4 @@
+
 ---
 
 # 🛒 Central de Achados & Cursos - Vitrine de Ofertas
@@ -7,13 +8,6 @@
 ![Status do Projeto](https://img.shields.io/badge/STATUS-CONCLU%C3%8DDO-brightgreen?style=for-the-badge)
 ![Deploy Vercel](https://img.shields.io/badge/DEPLOY-VERCEL-black?style=for-the-badge&logo=vercel)
 ![Licença](https://img.shields.io/badge/LICEN%C3%87A-MIT-blue?style=for-the-badge)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Google Sheets](https://img.shields.io/badge/Google%20Sheets-34A853?style=for-the-badge&logo=google-sheets&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
-
-O projeto conta com captura de demandas em tempo real enviadas para uma base de dados no **Google Sheets** via Webhook sem expor informações sensíveis do usuário/administrador.
 
 ---
 
