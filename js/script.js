@@ -11,7 +11,7 @@ let categoriaAtiva = 'todas';
 // BASE DE DADOS COMPLETA DOS PRODUTOS POR PLATAFORMA
 // =========================================================================
 const baseProdutos = {
-// 1. MERCADO LIVRE (35 Produtos)
+// 1. MERCADO LIVRE (35 Produtos no Total)
   mercadolivre: [
     {
       titulo: "Creatina Monohidratada Pura 1kg Dark Lab Unidade Sem sabor",
@@ -336,17 +336,17 @@ const baseProdutos = {
       tags: ["Cores Sortidas", "Excelente Custo Benefício"]
     },
     {
-      titulo: "Tênis Puma Caven Corrida Caminhada Macio Treino Oferta",
-      vendedor: "Oferta Imperdível",
+      titulo: "Tênis Lite Racer 4.0 adidas",
+      vendedor: "Loja oficial adidas",
       categoria: "Moda & Acessórios",
       avaliacao: "4.9",
-      vendas: "+100 vendidos",
+      vendas: "+10 mil vendidos",
       precoOriginal: "",
       precoPromocional: "Consulte o Preço Atualizado",
-      desconto: "70% OFF",
-      destaque: "Puma Caven",
-      imagem: "assents/mercado_livre_files/tenis_puma_macio.png",
-      link: "https://meli.la/2LYSLyK",
+      desconto: "40% OFF",
+      destaque: "Em até 7x sem juros",
+      imagem: "assents/mercado_livre_files/tenis_adidas.jpeg",
+      link: "https://meli.la/2LMtpWz",
       tags: ["Conforto & Estilo", "Puma Original"]
     },
     {
@@ -486,7 +486,7 @@ const baseProdutos = {
       desconto: "Carga Pesada",
       destaque: "Estrutura Reforçada",
       imagem: "assents/mercado_livre_files/carro_apoio.png",
-      link: "https://meli.la/2LMtpWz",
+      link: "https://meli.la/2kbmNvd",
       tags: ["Pneu com Câmara", "Até 200kg"]
     },
     {
@@ -500,12 +500,12 @@ const baseProdutos = {
       desconto: "Kärcher Original",
       destaque: "Alta Performance",
       imagem: "assents/mercado_livre_files/lavadora_carro.png",
-      link: "https://meli.la/2kbmNvd",
+      link: "https://meli.la/1QwEwR7",
       tags: ["Economia de Água", "Jato Regulável"]
     }
   ],
 
-  // 2. KIWIFY (19 Produtos)
+  // 2. KIWIFY (19 Produtos - 14 Originais + 5 Novos com Sales Pages)
   kiwify: [
     {
       titulo: "Esmaltação em Gel - Curso Completo",
@@ -775,7 +775,7 @@ const baseProdutos = {
     }
   ],
 
-  // 3. KIRVANO (16 Produtos)
+  // 3. KIRVANO (16 Produtos - 10 Mantidos Ativos + 6 Novos)
   kirvano: [
     {
       titulo: "Escola das Manicures - Curso Profissional",
@@ -1003,318 +1003,318 @@ const baseProdutos = {
     }
   ],
 
-  // 4. MAGALU (22 Produtos)
+  // ========================================================================
+    // 4. MAGALU (22 Produtos)
   magalu: [
     {
-      titulo: "Smart TV Samsung 50\" 4K Crystal UHD",
-      vendedor: "Por Samsung",
-      categoria: "Eletrônicos & TV",
-      avaliacao: "4.9",
+      titulo: "Geladeira Electrolux Frost Free com AutoSense 432L Efficient Duplex Inox Look (TF70S)",
+      vendedor: "Por Magalu",
+      categoria: "Eletrodomésticos",
+      avaliacao: "4.8",
       vendas: "+5mil vendidos",
       precoOriginal: "",
       precoPromocional: "Consulte o Preço Atualizado",
       desconto: "Oferta Magalu",
       destaque: "Até 12x sem juros",
-      imagem: "images/magalu/smart-tv-samsung.jpg",
+      imagem: "assents/Magalu/refrigerador_eletroctrolux.jpeg",
       link: "https://magazineluiza.onelink.me/589508454/zdex1acq",
-      tags: ["4K Ultra HD", "Smart TV", "Garantia Magalu"]
+      tags: ["Eletrodoméstico", "Garantia Magalu"]
     },
     {
-      titulo: "Fone de Ouvido Bluetooth JBL Tune 770NC",
-      vendedor: "Por JBL",
-      categoria: "Áudio & Tecnologia",
-      avaliacao: "4.8",
-      vendas: "+3mil vendidos",
-      precoOriginal: "",
-      precoPromocional: "Consulte o Preço Atualizado",
-      desconto: "Oferta Magalu",
-      destaque: "Cancelamento de Ruído",
-      imagem: "images/magalu/fone-jbl.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/vs7cwu6p",
-      tags: ["Bluetooth 5.0", "Cancelamento Ativo", "Bateria 50h"]
-    },
-    {
-      titulo: "Geladeira Electrolux Frost Free 440L",
+      titulo: "Micro-ondas Electrolux 23L Preto Efficient com Descongelamento Assistido (ME23P)",
       vendedor: "Por Electrolux",
       categoria: "Eletrodomésticos",
       avaliacao: "4.7",
-      vendas: "+10mil vendidos",
-      precoOriginal: "",
-      precoPromocional: "Consulte o Preço Atualizado",
-      desconto: "Oferta Magalu",
-      destaque: "Entrega grátis",
-      imagem: "images/magalu/geladeira-electrolux.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/trhhe9s9",
-      tags: ["Frost Free", "440 Litros", "Econômica"]
-    },
-    {
-      titulo: "Smartphone Xiaomi Redmi Note 11 128GB",
-      vendedor: "Por Xiaomi",
-      categoria: "Smartphones & Celulares",
-      avaliacao: "4.8",
       vendas: "+8mil vendidos",
       precoOriginal: "",
       precoPromocional: "Consulte o Preço Atualizado",
       desconto: "Oferta Magalu",
-      destaque: "Câmera 108MP",
-      imagem: "images/magalu/xiaomi-redmi.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/1brcn5pa",
-      tags: ["128GB", "6GB RAM", "Tela AMOLED"]
+      destaque: "Entrega grátis",
+      imagem: "assents/Magalu/microondas_electrolux.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/vs7cwu6p",
+      tags: ["Microondas", "Electrolux"]
     },
     {
-      titulo: "Notebook Lenovo IdeaPad 3 i5 8GB 256GB",
-      vendedor: "Por Lenovo",
-      categoria: "Computadores & Notebooks",
+      titulo: "Freezer Vertical Electrolux Cycle Defrost 1 Porta 175L Inverter FEI19",
+      vendedor: "Por Magalu",
+      categoria: "Eletrodomésticos",
       avaliacao: "4.6",
-      vendas: "+4mil vendidos",
+      vendas: "+3mil vendidos",
       precoOriginal: "",
       precoPromocional: "Consulte o Preço Atualizado",
       desconto: "Oferta Magalu",
-      destaque: "Windows 11",
-      imagem: "images/magalu/notebook-lenovo.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/br2sev6i",
-      tags: ["Intel i5", "8GB RAM", "SSD 256GB"]
+      destaque: "Capacidade 200L",
+      imagem: "assents/Magalu/freezzer_vertical.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/trhhe9s9",
+      tags: ["Freezer", "Vertical"]
     },
     {
-      titulo: "Ar Condicionado Springer Midea 9000 BTUs",
-      vendedor: "Por Springer Midea",
-      categoria: "Ar Condicionado",
-      avaliacao: "4.9",
-      vendas: "+2mil vendidos",
-      precoOriginal: "",
-      precoPromocional: "Consulte o Preço Atualizado",
-      desconto: "Oferta Magalu",
-      destaque: "Split Inverter",
-      imagem: "images/magalu/ar-condicionado.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/6fa720sz",
-      tags: ["9000 BTUs", "Inverter", "Economia"]
-    },
-    {
-      titulo: "Ventilador Arno Turbo Silence 3 Velocidades",
-      vendedor: "Por Arno",
+      titulo: "Máquina de Lavar Electrolux 13kg Branca Essential Care com Cesto Inox e Jet&Clean (LED13)",
+      vendedor: "Por Magalu",
       categoria: "Eletrodomésticos",
-      avaliacao: "4.7",
-      vendas: "+15mil vendidos",
-      precoOriginal: "",
-      precoPromocional: "Consulte o Preço Atualizado",
-      desconto: "Oferta Magalu",
-      destaque: "Silencioso",
-      imagem: "images/magalu/ventilador-arno.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/vzztapif",
-      tags: ["3 Velocidades", "Turbo", "Silencioso"]
-    },
-    {
-      titulo: "Fritadeira Elétrica Oster Air Fryer 5,5L",
-      vendedor: "Por Oster",
-      categoria: "Eletrodomésticos",
-      avaliacao: "4.8",
-      vendas: "+20mil vendidos",
-      precoOriginal: "",
-      precoPromocional: "Consulte o Preço Atualizado",
-      desconto: "Oferta Magalu",
-      destaque: "Display Digital",
-      imagem: "images/magalu/air-fryer-oster.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/ofq5r4md",
-      tags: ["5,5 Litros", "Digital", "Óleo Zero"]
-    },
-    {
-      titulo: "Cadeira Gamer DT3 Sports Preto e Vermelho",
-      vendedor: "Por DT3",
-      categoria: "Móveis & Decoração",
-      avaliacao: "4.5",
-      vendas: "+1.5mil vendidos",
-      precoOriginal: "",
-      precoPromocional: "Consulte o Preço Atualizado",
-      desconto: "Oferta Magalu",
-      destaque: "Ajustável",
-      imagem: "images/magalu/cadeira-gamer.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/9vqwfaa6",
-      tags: ["Gamer", "Ajustável", "Couro"]
-    },
-    {
-      titulo: "Mesa Digitalizadora Draw Tablet Drawing Screen",
-      vendedor: "Por Draw",
-      categoria: "Informática & Acessórios",
-      avaliacao: "4.8",
-      vendas: "+900 vendidos",
-      precoOriginal: "",
-      precoPromocional: "Consulte o Preço Atualizado",
-      desconto: "Oferta Magalu",
-      destaque: "Sensível à Pressão",
-      imagem: "images/magalu/mesa-digitalizadora.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/zat5ys8c",
-      tags: ["Tela 10\"", "8192 Níveis", "USB-C"]
-    },
-    {
-      titulo: "Caixa de Som JBL Charge 5 Bluetooth",
-      vendedor: "Por JBL",
-      categoria: "Áudio & Tecnologia",
       avaliacao: "4.9",
       vendas: "+12mil vendidos",
       precoOriginal: "",
       precoPromocional: "Consulte o Preço Atualizado",
       desconto: "Oferta Magalu",
-      destaque: "Resistente à água",
-      imagem: "images/magalu/caixa-som-jbl.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/r6mn1guv",
-      tags: ["Bluetooth", "Power Bank", "IP67"]
+      destaque: "Econômica",
+      imagem: "assents/Magalu/lavadora_13kg.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/1brcn5pa",
+      tags: ["Lavadora", "13kg"]
     },
     {
-      titulo: "Aspirador Robô Electrolux 1800W",
-      vendedor: "Por Electrolux",
-      categoria: "Eletrodomésticos",
-      avaliacao: "4.6",
+      titulo: "Smart TV AOC 50 DLED Roku 4K WiFi HDR 50U704578G",
+      vendedor: "Por Roku",
+      categoria: "Eletrônicos & TV",
+      avaliacao: "4.8",
       vendas: "+6mil vendidos",
       precoOriginal: "",
       precoPromocional: "Consulte o Preço Atualizado",
       desconto: "Oferta Magalu",
-      destaque: "Mapeamento Inteligente",
-      imagem: "images/magalu/aspirador-robo.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/oork3wvn",
-      tags: ["Robô Aspirador", "WiFi", "App"]
+      destaque: "Smart TV",
+      imagem: "assents/Magalu/tv50poleg_roku.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/br2sev6i",
+      tags: ["50 Pol", "Roku", "Smart TV"]
     },
     {
-      titulo: "Monitor Gamer AOC 24\" 144Hz",
-      vendedor: "Por AOC",
+      titulo: "Smart TV Samsung LED 50 4K Wi-Fi Tizen Crystal 4K UN50U8600FGXZD",
+      vendedor: "Por Samsung",
+      categoria: "Eletrônicos & TV",
+      avaliacao: "4.9",
+      vendas: "+10mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Oferta Magalu",
+      destaque: "4K Ultra HD",
+      imagem: "assents/Magalu/tv50poleg_samgung.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/6fa720sz",
+      tags: ["50 Pol", "Samsung", "4K"]
+    },
+    {
+      titulo: "Computador PC Gamer Completo TOB Intel Core i5 SSD 480GB 16GB Teclado Mouse Mouse Pad e Headset Gamer Monitor 23 Windows 11 Pro Trial - TOB COMPUTERS",
+      vendedor: "Por Magalu",
       categoria: "Informática & Acessórios",
       avaliacao: "4.7",
-      vendas: "+3.2mil vendidos",
+      vendas: "+2mil vendidos",
       precoOriginal: "",
       precoPromocional: "Consulte o Preço Atualizado",
       desconto: "Oferta Magalu",
-      destaque: "1ms de resposta",
-      imagem: "images/magalu/monitor-gamer.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/lgmwcef8",
-      tags: ["144Hz", "1ms", "Full HD"]
+      destaque: "Alta Performance",
+      imagem: "assents/Magalu/pc_gamer.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/vzztapif",
+      tags: ["PC Gamer", "Alta Performance"]
     },
     {
-      titulo: "Smartwatch Samsung Galaxy Watch 6",
-      vendedor: "Por Samsung",
-      categoria: "Smartphones & Celulares",
-      avaliacao: "4.9",
-      vendas: "+4.5mil vendidos",
+      titulo: "Notebook Acer Aspire Go Intel Core i5 13420H 8GB RAM 512GB SSD 15,6' Full HD Windows 11 AG15-71P-53GM",
+      vendedor: "Por Acer",
+      categoria: "Informática & Acessórios",
+      avaliacao: "4.6",
+      vendas: "+4mil vendidos",
       precoOriginal: "",
       precoPromocional: "Consulte o Preço Atualizado",
       desconto: "Oferta Magalu",
-      destaque: "Medição de ECG",
-      imagem: "images/magalu/smartwatch-samsung.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/yn0iqdht",
-      tags: ["Smartwatch", "ECG", "Bluetooth"]
+      destaque: "Intel i5",
+      imagem: "assents/Magalu/notebook_acer.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/ofq5r4md",
+      tags: ["Notebook", "Acer", "i5"]
     },
     {
-      titulo: "Fogão 4 Bocas Consul Inox com Forno",
-      vendedor: "Por Consul",
-      categoria: "Eletrodomésticos",
-      avaliacao: "4.8",
-      vendas: "+18mil vendidos",
+      titulo: "Refil de Tinta Epson EcoTank T544520-4P - 4 Unidades",
+      vendedor: "Por Magalu",
+      categoria: "Casa & Utilidades",
+      avaliacao: "4.5",
+      vendas: "+1.5mil vendidos",
       precoOriginal: "",
       precoPromocional: "Consulte o Preço Atualizado",
       desconto: "Oferta Magalu",
-      destaque: "Acendimento Automático",
-      imagem: "images/magalu/fogao-consul.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/3bssvqpt",
-      tags: ["4 Bocas", "Inox", "Forno"]
+      destaque: "Kit Completo",
+      imagem: "assents/Magalu/kit_tinta_epson.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/9vqwfaa6",
+      tags: ["Tintas", "Kit"]
     },
     {
-      titulo: "Liquidificador Philips Walita 3 em 1",
-      vendedor: "Por Philips Walita",
-      categoria: "Eletrodomésticos",
-      avaliacao: "4.7",
-      vendas: "+9mil vendidos",
-      precoOriginal: "",
-      precoPromocional: "Consulte o Preço Atualizado",
-      desconto: "Oferta Magalu",
-      destaque: "3 Funções",
-      imagem: "images/magalu/liquidificador-philips.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/60iflkjl",
-      tags: ["3 em 1", "Lâminas", "110V/220V"]
-    },
-    {
-      titulo: "Tablet Samsung Galaxy Tab S6 Lite 64GB",
-      vendedor: "Por Samsung",
-      categoria: "Smartphones & Celulares",
+      titulo: "Impressora Multifuncional Epson EcoTank L3250, Colorida, Wifi, Wireless, USB, Bivolt, Preta - C11CJ67303",
+      vendedor: "Por Epson",
+      categoria: "Informática & Acessórios",
       avaliacao: "4.8",
       vendas: "+7mil vendidos",
       precoOriginal: "",
       precoPromocional: "Consulte o Preço Atualizado",
       desconto: "Oferta Magalu",
-      destaque: "S Pen Inclusa",
-      imagem: "images/magalu/tablet-samsung.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/562d2dd1",
-      tags: ["64GB", "S Pen", "Android"]
+      destaque: "Multifuncional",
+      imagem: "assents/Magalu/impressora_epson.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/zat5ys8c",
+      tags: ["Impressora", "Epson", "Multifuncional"]
     },
     {
-      titulo: "Microondas Panasonic 21 Litros com Grill",
-      vendedor: "Por Panasonic",
+      titulo: "Xiaomi Redmi Note 14 256GB 8GB Câmera 108MP 20MP Tela 6.67 AMOLED 120Hz FHD plus Design Premium Dual SIM Chip IP54 Dolby",
+      vendedor: "Por Xiaomi",
+      categoria: "Smartphones & Celulares",
+      avaliacao: "4.9",
+      vendas: "+15mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Oferta Magalu",
+      destaque: "128GB",
+      imagem: "assents/Magalu/redmi_note14.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/r6mn1guv",
+      tags: ["Xiaomi", "Redmi", "128GB"]
+    },
+    {
+      titulo: "Carregador USB-C de 20W Apple Branco Original - MUVU3BZ/A",
+      vendedor: "Por Magalu",
+      categoria: "Tecnologia & Gadgets",
+      avaliacao: "4.6",
+      vendas: "+20mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Oferta Magalu",
+      destaque: "Turbo 40W",
+      imagem: "assents/Magalu/carregador_tipoC_original.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/oork3wvn",
+      tags: ["Carregador", "Tipo C", "Turbo"]
+    },
+    {
+      titulo: "Apple iPhone 15 128GB Azul 6,1 48MP iOS 5G",
+      vendedor: "Por Apple",
+      categoria: "Smartphones & Celulares",
+      avaliacao: "4.9",
+      vendas: "+8mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Oferta Magalu",
+      destaque: "Até 12x sem juros",
+      imagem: "assents/Magalu/celular_iphone15.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/lgmwcef8",
+      tags: ["iPhone", "Apple", "15"]
+    },
+    {
+      titulo: "Smartphone Motorola G86 128GB 5G - Cinza, com Câmera 108MP, Tela 6.5, RAM 8GB, Bateria 5000mAh",
+      vendedor: "Por Motorola",
+      categoria: "Smartphones & Celulares",
+      avaliacao: "4.7",
+      vendas: "+6mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Oferta Magalu",
+      destaque: "Câmera 108MP",
+      imagem: "assents/Magalu/moto_g86.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/yn0iqdht",
+      tags: ["Motorola", "G86", "108MP"]
+    },
+    {
+      titulo: "Controle Gamepad Joystick Celular Bluetooth Android Jogos Pc - Altomex / X3",
+      vendedor: "Por Magalu",
+      categoria: "Tecnologia & Gadgets",
+      avaliacao: "4.8",
+      vendas: "+3mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Oferta Magalu",
+      destaque: "Com 2 Controles",
+      imagem: "assents/Magalu/console_game.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/3bssvqpt",
+      tags: ["Console", "Gamer", "2 Controles"]
+    },
+    {
+      titulo: "Smartphone Samsung Galaxy S25 Ultra 256GB 5G - Titânio Cinza, com Caneta S Pen, Galaxy AI, Câmera Quadrupla 200MP + Selfie 12MP, RAM 12GB, Tela 6.9",
+      vendedor: "Por Samsung",
+      categoria: "Smartphones & Celulares",
+      avaliacao: "4.9",
+      vendas: "+10mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Oferta Magalu",
+      destaque: "5G",
+      imagem: "assents/Magalu/galaxi_s25.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/60iflkjl",
+      tags: ["Samsung", "Galaxy", "S25"]
+    },
+    {
+      titulo: "Ar-condicionado Split 12.000 BTUs Philco Eco Inverter Quente e Frio PAC12QC",
+      vendedor: "Por Philco",
       categoria: "Eletrodomésticos",
       avaliacao: "4.6",
-      vendas: "+11mil vendidos",
+      vendas: "+2.5mil vendidos",
       precoOriginal: "",
       precoPromocional: "Consulte o Preço Atualizado",
       desconto: "Oferta Magalu",
-      destaque: "Função Grill",
-      imagem: "images/magalu/microondas-panasonic.jpg",
+      destaque: "Split",
+      imagem: "assents/Magalu/ar_condicionado_philco.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/562d2dd1",
+      tags: ["Central", "Philco", "Split"]
+    },
+    {
+      titulo: "Climatizador de Ar Ventisol CLIN16 16 Litros 130W 5 em 1 Ventila Climatiza Umidifica Filtra e Circula o Ar",
+      vendedor: "Por Magalu",
+      categoria: "Eletrodomésticos",
+      avaliacao: "4.5",
+      vendas: "+4mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Oferta Magalu",
+      destaque: "Portátil",
+      imagem: "assents/Magalu/climatizador.jpeg",
       link: "https://magazineluiza.onelink.me/589508454/fra9q9d9",
-      tags: ["21 Litros", "Grill", "Digital"]
+      tags: ["Climatizador", "Portátil"]
     },
     {
-      titulo: "Bicicleta Ergométrica Movement XT 5.0",
-      vendedor: "Por Movement",
-      categoria: "Saúde & Fitness",
+      titulo: "Ventilador Mondial Super Power 30cm 6 Pás 3 Velocidades 60W",
+      vendedor: "Por Mondial",
+      categoria: "Eletrodomésticos",
       avaliacao: "4.7",
-      vendas: "+1.8mil vendidos",
+      vendas: "+18mil vendidos",
       precoOriginal: "",
       precoPromocional: "Consulte o Preço Atualizado",
       desconto: "Oferta Magalu",
-      destaque: "Monitor Cardíaco",
-      imagem: "images/magalu/bicicleta-ergometrica.jpg",
+      destaque: "3 Velocidades",
+      imagem: "assents/Magalu/ventilador_40cm_mondial.jpeg",
       link: "https://magazineluiza.onelink.me/589508454/5nw5znc1",
-      tags: ["Ergométrica", "Digital", "Cardíaco"]
+      tags: ["Ventilador", "Mondial", "40cm"]
     },
     {
-      titulo: "Cama Box Queen com Colchão Ortopédico",
-      vendedor: "Por Ortobom",
-      categoria: "Móveis & Decoração",
-      avaliacao: "4.9",
-      vendas: "+22mil vendidos",
-      precoOriginal: "",
-      precoPromocional: "Consulte o Preço Atualizado",
-      desconto: "Oferta Magalu",
-      destaque: "Ortopédico",
-      imagem: "images/magalu/cama-box.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/jlsn9bgi",
-      tags: ["Queen", "Ortopédico", "Box"]
-    },
-    {
-      titulo: "Impressora Multifuncional Epson EcoTank L3250",
-      vendedor: "Por Epson",
-      categoria: "Informática & Acessórios",
+      titulo: "Carrinho de Bebê Alça Reversível com Bebê Conforto Cosco Kids Travel System Reverse 0 a 15kg",
+      vendedor: "Por Magalu",
+      categoria: "Infantil",
       avaliacao: "4.8",
-      vendas: "+14mil vendidos",
+      vendas: "+5mil vendidos",
       precoOriginal: "",
       precoPromocional: "Consulte o Preço Atualizado",
       desconto: "Oferta Magalu",
-      destaque: "Tanque de Tinta",
-      imagem: "images/magalu/impressora-epson.jpg",
-      link: "https://magazineluiza.onelink.me/589508454/66kcw79n",
-      tags: ["Multifuncional", "Tanque", "WiFi"]
+      destaque: "Kit Completo",
+      imagem: "assents/Magalu/kit_carrinho_bebeconforto.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/jlsn9bgi",
+      tags: ["Carrinho", "Bebê", "Kit"]
     },
     {
-      titulo: "Jogo de Panelas Tramontina 6 Peças Antiaderente",
-      vendedor: "Por Tramontina",
-      categoria: "Cozinha & Utilidades",
-      avaliacao: "4.7",
-      vendas: "+30mil vendidos",
+      titulo: "Cadeirinha para Auto Cosco Kids Tour 9kg a 36kg",
+      vendedor: "Por Magalu",
+      categoria: "Infantil",
+      avaliacao: "4.9",
+      vendas: "+7mil vendidos",
       precoOriginal: "",
       precoPromocional: "Consulte o Preço Atualizado",
       desconto: "Oferta Magalu",
-      destaque: "Antiaderente",
-      imagem: "images/magalu/jogo-panelas.jpg",
+      destaque: "Conforto e Segurança",
+      imagem: "assents/Magalu/cadeirinha_para_auto.jpeg",
+      link: "https://magazineluiza.onelink.me/589508454/66kcw79n",
+      tags: ["Cadeirinha", "Auto", "Segurança"]
+    },
+    {
+      titulo: "Banheira de Bebê com Trocador Galzerano Premium Branco e Rosa",
+      vendedor: "Por Magalu",
+      categoria: "Infantil",
+      avaliacao: "4.8",
+      vendas: "+4mil vendidos",
+      precoOriginal: "",
+      precoPromocional: "Consulte o Preço Atualizado",
+      desconto: "Oferta Magalu",
+      destaque: "Kit Banho",
+      imagem: "assents/Magalu/banheira_trocador.jpeg",
       link: "https://magazineluiza.onelink.me/589508454/0ipmsk4r",
-      tags: ["6 Peças", "Antiaderente", "Tramontina"]
+      tags: ["Banheira", "Trocador", "Kit"]
     }
-  ]
-};
+  ]};
 
 // =========================================================================
 // CRONÔMETRO REGRESSIVO DE OFERTAS
@@ -1386,7 +1386,7 @@ function renderizarProdutos(lista) {
       <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300">
         <div>
           <div class="relative bg-gray-50 p-6 flex justify-center border-b border-gray-100">
-            <img class="h-56 object-contain rounded-lg" src="${item.imagem}" alt="${item.titulo}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%23f3f4f6%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%239ca3af%22 font-family=%22sans-serif%22 font-size=%2214%22%3ESem imagem%3C/text%3E%3C/svg%3E'">
+            <img class="h-56 object-contain rounded-lg" src="${item.imagem}" alt="${item.titulo}">
             ${item.desconto ? `<span class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-md shadow">${item.desconto}</span>` : ''}
           </div>
           <div class="p-6">
